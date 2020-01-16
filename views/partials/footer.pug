@@ -3,12 +3,20 @@ footer.footer
         div.footer-container__column
             span MENU
             ul.footer__nav-list
-                li 교회소개
-                li 예배
-                li 교회 생활
-                li 교육/양육
-                li 공동체
-                li 벧엘스토리
+                li 
+                    a(href=routes.home) HOME
+                li
+                    a(href=routes.about) 교회소개
+                li
+                    a(href=routes.worship) 예배
+                li
+                    a(href=routes.life) 교회생활
+                li
+                    a(href=routes.school) 교육/양육
+                li 
+                    a(href=routes.community) 공동체
+                li 
+                    a(href=routes.story) 벧엘스토리
         div.footer__location
             div.footer__location-column
                 img.mainlogo-footer(src="icon/logo_bottom.png")
@@ -22,11 +30,13 @@ footer.footer
                 span CONNECT
             ul.footer__connect-column-list
                 li
-                    img.instargram-logo(src="icon/sns_icon_1_footer.png")
-                    span Instargram
+                    a(href="")
+                        img.instargram-logo(src="icon/sns_icon_1_footer.png")
+                        span Instargram
                 li
-                    img.facebook-logo(src="icon/sns_icon_2_footer.png")
-                    span Facebook
+                    a(href="")
+                        img.facebook-logo(src="icon/sns_icon_2_footer.png")
+                        span Facebook
                 li
                     span.location-name 운정(u):
                     span Tel) 031.956.3770

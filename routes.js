@@ -4,7 +4,7 @@ const JOIN = "/join";
 const LOGIN = "/login";
 const LOGOUT = "/logout";
 const SEARCH = "/search";
-const INFO = "/info";
+const ABOUT = "/about";
 const WORSHIP = "/worship";
 const LIFE = "/life";
 const SCHOOL = "/school";
@@ -14,7 +14,7 @@ const STORY = "/story";
 //  User
 const USER = "/users";
 const USER_DETAIL = "/:id";
-const USER_PROFILE = "/edit-profile";
+const EDIT_PROFILE = "/edit-profile";
 const CHANGE_PASSWORD = "/change-password";
 
 const routes = {
@@ -23,7 +23,7 @@ const routes = {
   login: LOGIN,
   logout: LOGOUT,
   search: SEARCH,
-  info: INFO,
+  about: ABOUT,
   worship: WORSHIP,
   life: LIFE,
   school: SCHOOL,
@@ -31,7 +31,7 @@ const routes = {
   story: STORY,
   user: USER,
   userDetail: USER_DETAIL,
-  userProfile: USER_PROFILE,
+  editProfile: EDIT_PROFILE,
   changePassword: CHANGE_PASSWORD
 };
 

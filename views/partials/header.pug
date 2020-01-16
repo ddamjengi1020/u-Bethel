@@ -1,20 +1,29 @@
 header.header
     div.header__logo-container
         span
-            img.mainlogo(src="icon/logo_top.png")
+            a(href=routes.home)
+                img.mainlogo(src="icon/logo_top.png")
     nav.header__nav
         ul.header__nav-list
-            li HOME
-            li 교회소개
-            li 예배
-            li 교회생활
-            li 교육/양육
-            li 공동체
-            li 벧엘스토리
+            li 
+                a(href=routes.home) HOME
+            li
+                a(href=routes.about) 교회소개
+            li
+                a(href=routes.worship) 예배
+            li
+                a(href=routes.life) 교회생활
+            li
+                a(href=routes.school) 교육/양육
+            li 
+                a(href=routes.community) 공동체
+            li 
+                a(href=routes.story) 벧엘스토리
     ul.header__convenience
         li KO
         li EN
         li
             img.search-img(src="icon/search_icon.png")
         li
-            img.user-img(src="icon/preist_icon.png")
+            a(href=routes.user)
+                img.user-img(src="icon/preist_icon.png")
