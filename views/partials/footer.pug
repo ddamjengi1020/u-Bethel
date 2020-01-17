@@ -1,47 +1,58 @@
 footer.footer
-    div.footer-container
-        div.footer-container__column
-            span MENU
-            ul.footer__nav-list
-                li 
-                    a(href=routes.home) HOME
-                li
-                    a(href=routes.about) 교회소개
-                li
-                    a(href=routes.worship) 예배
-                li
-                    a(href=routes.life) 교회생활
-                li
-                    a(href=routes.school) 교육/양육
-                li 
-                    a(href=routes.community) 공동체
-                li 
-                    a(href=routes.story) 벧엘스토리
-        div.footer__location
-            div.footer__location-column
-                img.mainlogo-footer(src="icon/logo_bottom.png")
-            div.footer__location-column-address
-                span 운정(u)
-                span 10895 경기도 파주시 경의로 1324 (와동동 1540번지)
-                span 일산(i)
-                span 10402 경기도 고양시 일산동구 중앙로 1261번길 27 (장항동 857번지 2호)
-        div.footer__connect
-            div.footer__connect-column
-                span CONNECT
-            ul.footer__connect-column-list
-                li
-                    a(href="")
-                        img.instargram-logo(src="icon/sns_icon_1_footer.png")
-                        span Instargram
-                li
-                    a(href="")
-                        img.facebook-logo(src="icon/sns_icon_2_footer.png")
-                        span Facebook
-                li
-                    span.location-name 운정(u):
-                    span Tel) 031.956.3770
-                li
-                    span.location-name 일산(i)
-                    span Tel) 031.915.4550
-    div.footer__copyright
-        span Copyright &copy; #{new Date().getFullYear()}
+    .footer-box
+        .footer__gallery
+            img(src="icon-img/sample1.jpg")
+            img(src="icon-img/sample2.jpg")
+            img(src="icon-img/sample3.jpg")
+            img(src="icon-img/sample4.jpg")
+            img(src="icon-img/sample5.jpg")
+            img(src="icon-img/sample6.jpg")
+        .footer-container
+            .footer__menu
+                span MENU
+                ul.footer__nav-list
+                    li 
+                        a(href=routes.home) HOME
+                    li
+                        a(href=routes.about) 교회소개
+                    li
+                        a(href=routes.worship) 예배
+                    li
+                        a(href=routes.life) 교회생활
+                    li
+                        a(href=routes.school) 교육/양육
+                    li 
+                        a(href=routes.community) 공동체
+                    li 
+                        a(href=routes.story) 벧엘스토리
+            .footer__location
+                .footer__location-column
+                    img.mainlogo-footer(src="icon-img/logo_bottom.png")
+                .footer__location-column-address
+                    .address.u
+                        span.address__name 운정(u)
+                        .address__detail
+                            span 10895 경기도 파주시 경의로 1324 (와동동 1540번지)
+                    .address.i
+                        span.address__name 일산(i)
+                        .address__detail
+                            span 10402 경기도 고양시 일산동구 중앙로 1261번길 27 (장항동 857번지 2호)
+            .footer__connect
+                    span.footer__connect-name CONNECT
+                    ul.footer__connect-list
+                        li
+                            a(href="https://www.instagram.com/hisbethel/?hl=ko", target="_blank")
+                                img.instargram-logo(src="icon-img/sns_icon_1_footer.png")
+                                span Instargram
+                        li
+                            a(href="https://www.facebook.com/pastor.pks/", target="_blank")
+                                img.facebook-logo(src="icon-img/sns_icon_2_footer.png")
+                                span Facebook
+                        li
+                            span.location-name 운정(u) :
+                            span Tel) 031.956.3770
+                        li
+                            span.location-name 일산(i) :
+                            span Tel) 031.915.4550
+    .footer__copyright
+        span Copyright &copy; #{new Date().getFullYear()} Bethel. All rights reserved 
