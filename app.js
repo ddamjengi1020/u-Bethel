@@ -13,7 +13,8 @@ const app = express();
 
 app.use(helmet());
 app.set("view engine", "pug");
-app.use("/icon-img", express.static("icon,img"));
+app.use("/icon-img", express.static("icon_img"));
+app.use("/font", express.static("font"));
 app.use("/static", express.static("static"));
 app.use(morgan("dev"));
 app.use(bodyParser.json());
