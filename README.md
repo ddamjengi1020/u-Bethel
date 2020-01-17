@@ -1,14 +1,24 @@
-> U-BETHEL
+># **U-BETHEL**
 
-[ ] router
+## [ ] *Frontend*
 
-[ ] controller
++ [ ] View
 
-[ ] view
++ [ ] Css
 
-[ ] backend
++ [x] Webfont
 
-[ ] frontend
++ [ ] Javascript
 
-[ ] css
+## [ ] *Backend*
+
++ [X] Router
+
++ [ ] Model
+
++ [ ] Controller
+
++ [ ] DB
+
++ [ ] Cloud Server
 
