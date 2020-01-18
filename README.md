@@ -14,11 +14,11 @@
 
 + [X] Router
 
-+ [ ] Model
++ [x] Model
 
 + [ ] Controller
 
-+ [ ] DB(prisma)
++ [x] DB(prisma)
 
-+ [ ] Cloud Server
++ [ ] Cloud Server(heroku)
 
