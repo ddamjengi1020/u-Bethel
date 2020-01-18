@@ -18,7 +18,7 @@
 
 + [ ] Controller
 
-+ [ ] DB
++ [ ] DB(prisma)
 
 + [ ] Cloud Server
 

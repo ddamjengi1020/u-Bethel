@@ -1,0 +1,16 @@
+type User {
+  id: ID! @id
+  name: String!
+}
+
+type Image {
+  id: ID! @id
+  name: String!
+  file: Json!
+}
+
+type Video {
+  id: ID! @id
+  title: String!
+  file: Json!
+}

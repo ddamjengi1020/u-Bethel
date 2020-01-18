@@ -11,7 +11,8 @@ import {
   school,
   community,
   story,
-  getLogin
+  getLogin,
+  postHome
 } from "../controllers/globalController";
 
 const globalRouter = express.Router();

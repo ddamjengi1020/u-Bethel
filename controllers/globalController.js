@@ -1,4 +1,5 @@
 import routes from "../routes";
+import { prisma } from "../generated/prisma-client";
 
 //  Home
 

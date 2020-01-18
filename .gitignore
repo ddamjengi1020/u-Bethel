@@ -112,3 +112,5 @@ icon
 static
 font
 icon_img
+datamodel.prisma
+generated
