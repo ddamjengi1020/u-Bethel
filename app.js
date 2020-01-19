@@ -5,9 +5,10 @@ import cookieParser from "cookie-parser";
 import helmet from "helmet";
 import routes from "./routes";
 
+import { localsMiddleware } from "./middlewares";
 import globalRouter from "./routers/globalRouter";
 import userRouter from "./routers/userRouter";
-import { localsMiddleware } from "./middlewares";
+import pastorRouter from "./routers/pastorRouter";
 
 const app = express();
 
@@ -25,5 +26,6 @@ app.use(localsMiddleware);
 
 app.use(routes.home, globalRouter);
 app.use(routes.user, userRouter);
+app.use(routes.seniorPastor, pastorRouter);
 
 export default app;

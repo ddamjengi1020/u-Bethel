@@ -17,6 +17,9 @@ const USER_DETAIL = "/:id";
 const EDIT_PROFILE = "/edit-profile";
 const CHANGE_PASSWORD = "/change-password";
 
+// Park Pastor
+const SENIOR_PASTOR = "/park-pastor";
+
 const routes = {
   home: HOME,
   join: JOIN,
@@ -32,7 +35,8 @@ const routes = {
   user: USER,
   userDetail: USER_DETAIL,
   editProfile: EDIT_PROFILE,
-  changePassword: CHANGE_PASSWORD
+  changePassword: CHANGE_PASSWORD,
+  seniorPastor: SENIOR_PASTOR
 };
 
 export default routes;
