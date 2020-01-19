@@ -2,3 +2,17 @@ extends layouts/pastorMain
 
 block content
     div pastor page
+        form(action=routes.seniorPastor, method="post", enctype="multipart/form-data")
+            label(for="image") Image :
+            input(type="file", id="image" ,name="file", accept="image/*",require=true)
+            input(type="submit", value="submit")
+        form(action=routes.seniorPastor, method="post", enctype="multipart/form-data")
+            label(for="video") Video :
+            input(type="file", id="video", name="file", accept="video/*",require=true)
+            input(type="submit", value="submit")
+
+    if imagePath
+        img(src=`/${imagePath}`, style="width:200px")
+        br
+        br
+        video(src=`/${videoPath}`, style="width:400px", autoplay)
