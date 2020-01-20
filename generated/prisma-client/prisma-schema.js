@@ -3,7 +3,11 @@ module.exports = {
   // Please don't change this file manually but run `prisma generate` to update it.
   // For more information, please read the docs: https://www.prisma.io/docs/prisma-client/
 
-/* GraphQL */ `type AggregateImage {
+/* GraphQL */ `type Aggregatearticle {
+  count: Int!
+}
+
+type AggregateImage {
   count: Int!
 }
 
@@ -15,6 +19,131 @@ type AggregateVideo {
   count: Int!
 }
 
+type article {
+  id: ID!
+  title: String!
+  content: String!
+  file: Json!
+}
+
+type articleConnection {
+  pageInfo: PageInfo!
+  edges: [articleEdge]!
+  aggregate: Aggregatearticle!
+}
+
+input articleCreateInput {
+  id: ID
+  title: String!
+  content: String!
+  file: Json!
+}
+
+type articleEdge {
+  node: article!
+  cursor: String!
+}
+
+enum articleOrderByInput {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  content_ASC
+  content_DESC
+  file_ASC
+  file_DESC
+}
+
+type articlePreviousValues {
+  id: ID!
+  title: String!
+  content: String!
+  file: Json!
+}
+
+type articleSubscriptionPayload {
+  mutation: MutationType!
+  node: article
+  updatedFields: [String!]
+  previousValues: articlePreviousValues
+}
+
+input articleSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: articleWhereInput
+  AND: [articleSubscriptionWhereInput!]
+  OR: [articleSubscriptionWhereInput!]
+  NOT: [articleSubscriptionWhereInput!]
+}
+
+input articleUpdateInput {
+  title: String
+  content: String
+  file: Json
+}
+
+input articleUpdateManyMutationInput {
+  title: String
+  content: String
+  file: Json
+}
+
+input articleWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  content: String
+  content_not: String
+  content_in: [String!]
+  content_not_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_gt: String
+  content_gte: String
+  content_contains: String
+  content_not_contains: String
+  content_starts_with: String
+  content_not_starts_with: String
+  content_ends_with: String
+  content_not_ends_with: String
+  AND: [articleWhereInput!]
+  OR: [articleWhereInput!]
+  NOT: [articleWhereInput!]
+}
+
+input articleWhereUniqueInput {
+  id: ID
+}
+
 type BatchPayload {
   count: Long!
 }
@@ -22,6 +151,7 @@ type BatchPayload {
 type Image {
   id: ID!
   name: String!
+  path: String!
   file: Json!
 }
 
@@ -34,6 +164,7 @@ type ImageConnection {
 input ImageCreateInput {
   id: ID
   name: String!
+  path: String!
   file: Json!
 }
 
@@ -47,6 +178,8 @@ enum ImageOrderByInput {
   id_DESC
   name_ASC
   name_DESC
+  path_ASC
+  path_DESC
   file_ASC
   file_DESC
 }
@@ -54,6 +187,7 @@ enum ImageOrderByInput {
 type ImagePreviousValues {
   id: ID!
   name: String!
+  path: String!
   file: Json!
 }
 
@@ -77,11 +211,13 @@ input ImageSubscriptionWhereInput {
 
 input ImageUpdateInput {
   name: String
+  path: String
   file: Json
 }
 
 input ImageUpdateManyMutationInput {
   name: String
+  path: String
   file: Json
 }
 
@@ -114,6 +250,20 @@ input ImageWhereInput {
   name_not_starts_with: String
   name_ends_with: String
   name_not_ends_with: String
+  path: String
+  path_not: String
+  path_in: [String!]
+  path_not_in: [String!]
+  path_lt: String
+  path_lte: String
+  path_gt: String
+  path_gte: String
+  path_contains: String
+  path_not_contains: String
+  path_starts_with: String
+  path_not_starts_with: String
+  path_ends_with: String
+  path_not_ends_with: String
   AND: [ImageWhereInput!]
   OR: [ImageWhereInput!]
   NOT: [ImageWhereInput!]
@@ -146,6 +296,12 @@ type Mutation {
   upsertVideo(where: VideoWhereUniqueInput!, create: VideoCreateInput!, update: VideoUpdateInput!): Video!
   deleteVideo(where: VideoWhereUniqueInput!): Video
   deleteManyVideos(where: VideoWhereInput): BatchPayload!
+  createarticle(data: articleCreateInput!): article!
+  updatearticle(data: articleUpdateInput!, where: articleWhereUniqueInput!): article
+  updateManyarticles(data: articleUpdateManyMutationInput!, where: articleWhereInput): BatchPayload!
+  upsertarticle(where: articleWhereUniqueInput!, create: articleCreateInput!, update: articleUpdateInput!): article!
+  deletearticle(where: articleWhereUniqueInput!): article
+  deleteManyarticles(where: articleWhereInput): BatchPayload!
 }
 
 enum MutationType {
@@ -175,6 +331,9 @@ type Query {
   video(where: VideoWhereUniqueInput!): Video
   videos(where: VideoWhereInput, orderBy: VideoOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Video]!
   videosConnection(where: VideoWhereInput, orderBy: VideoOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): VideoConnection!
+  article(where: articleWhereUniqueInput!): article
+  articles(where: articleWhereInput, orderBy: articleOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [article]!
+  articlesConnection(where: articleWhereInput, orderBy: articleOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): articleConnection!
   node(id: ID!): Node
 }
 
@@ -182,6 +341,7 @@ type Subscription {
   image(where: ImageSubscriptionWhereInput): ImageSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
   video(where: VideoSubscriptionWhereInput): VideoSubscriptionPayload
+  article(where: articleSubscriptionWhereInput): articleSubscriptionPayload
 }
 
 type User {
@@ -284,6 +444,7 @@ input UserWhereUniqueInput {
 type Video {
   id: ID!
   title: String!
+  path: String!
   file: Json!
 }
 
@@ -296,6 +457,7 @@ type VideoConnection {
 input VideoCreateInput {
   id: ID
   title: String!
+  path: String!
   file: Json!
 }
 
@@ -309,6 +471,8 @@ enum VideoOrderByInput {
   id_DESC
   title_ASC
   title_DESC
+  path_ASC
+  path_DESC
   file_ASC
   file_DESC
 }
@@ -316,6 +480,7 @@ enum VideoOrderByInput {
 type VideoPreviousValues {
   id: ID!
   title: String!
+  path: String!
   file: Json!
 }
 
@@ -339,11 +504,13 @@ input VideoSubscriptionWhereInput {
 
 input VideoUpdateInput {
   title: String
+  path: String
   file: Json
 }
 
 input VideoUpdateManyMutationInput {
   title: String
+  path: String
   file: Json
 }
 
@@ -376,6 +543,20 @@ input VideoWhereInput {
   title_not_starts_with: String
   title_ends_with: String
   title_not_ends_with: String
+  path: String
+  path_not: String
+  path_in: [String!]
+  path_not_in: [String!]
+  path_lt: String
+  path_lte: String
+  path_gt: String
+  path_gte: String
+  path_contains: String
+  path_not_contains: String
+  path_starts_with: String
+  path_not_starts_with: String
+  path_ends_with: String
+  path_not_ends_with: String
   AND: [VideoWhereInput!]
   OR: [VideoWhereInput!]
   NOT: [VideoWhereInput!]

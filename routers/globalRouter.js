@@ -4,7 +4,6 @@ import {
   home,
   getJoin,
   logout,
-  search,
   about,
   worship,
   life,
@@ -12,7 +11,7 @@ import {
   community,
   story,
   getLogin,
-  postHome
+  search
 } from "../controllers/globalController";
 
 const globalRouter = express.Router();

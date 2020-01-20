@@ -1,4 +1,9 @@
 extends layouts/main
+include mixins/test
 
 block content
     div search
+        each a in contents
+            +test({
+                src: a.path
+            })

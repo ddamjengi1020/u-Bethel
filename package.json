@@ -32,7 +32,8 @@
   },
   "scripts": {
     "dev:server": "nodemon --exec babel-node init.js --ignore 'scss'",
-    "dev:assets": "cross-env WEBPACK_ENV=development webpack -w"
+    "dev:assets": "cross-env WEBPACK_ENV=development webpack -w",
+    "prisma": "prisma deploy"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"

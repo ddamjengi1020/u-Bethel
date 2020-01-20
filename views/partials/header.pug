@@ -23,7 +23,13 @@ header.header
         li KO
         li EN
         li
-            img.search-img(src="icon-img/search_icon.png")
+            .searching
+                img.search-img(src="icon-img/search_icon.png")
+                .searching-bar
+                    form(action=routes.search, method="get")
+                        input(type="text", name="term", placeholder="검색어 입력")
+                        input(type="submit", value="검색")
+                .searching-nipple    
         li
             a(href=routes.seniorPastor)
                 img.user-img(src="icon-img/preist_icon.png")

@@ -52,10 +52,46 @@
             border-right: 1.5px solid white;
             color: white;
         }
-        .search-img{
-            width: 23px;
-            height: 23px;
-            margin-left: 30px;
+        .searching{
+            position: relative;
+            .search-img{
+                width: 23px;
+                height: 23px;
+                margin-left: 30px;    
+            }
+            .searching-bar{
+                position: absolute;
+                top: 45px;
+                left: -110px;
+                width: fit-content;
+                padding: 5px;
+                background-color: white;
+                border: none;
+                form{
+                    display: flex;
+                    align-items: center;
+                    width: fit-content;
+                    input:first-child{
+                        width: 130px;
+                        height: 18px;
+                        margin-right: 5px;
+                    }
+                    input:last-child{
+                        background-color: red;
+                        color: white;
+                        border: 1px rgb(80, 80, 80) solid;
+                    }
+                }
+            }
+            .searching-nipple{
+                position: absolute;
+                top: 36px;
+                left: 34px;
+                transform: rotate(55deg) skewX(20deg);
+                border: 10px white solid;
+                background-color: transparent;
+                z-index: -1;
+            }
         }
         .user-img{
             width: 20px;

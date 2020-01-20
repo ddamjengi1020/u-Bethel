@@ -23,8 +23,19 @@ export const logout = (req, res) => {
 
 //  Search
 
-export const search = (req, res) => {
-  res.render("search", { pageTitle: "Search" });
+export const search = async (req, res) => {
+  const {
+    query: { term }
+  } = req;
+  let contents = [];
+  try {
+    contents = await prisma.images({ where: { name: "콩이❤" } }).path();
+    res.status(200);
+    res.render("search", { pageTitle: "Search", contents });
+  } catch (error) {
+    res.status(400);
+    res.redirect(routes.home);
+  }
 };
 
 // Navigation

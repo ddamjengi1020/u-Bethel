@@ -7,8 +7,8 @@ export const getPastorHome = async (req, res) => {
   const video = await prisma.videos();
   const vrdLength = await video.length;
   if (imgLength > 0 && vrdLength > 0) {
-    const imagePath = image[imgLength - 1].file.path;
-    const videoPath = video[vrdLength - 1].file.path;
+    const imagePath = image[imgLength - 1].path;
+    const videoPath = video[vrdLength - 1].path;
     res.render("pastor", { pageTitle: "Home", imagePath, videoPath });
   } else {
     res.render("pastor", { pageTitle: "Home" });
@@ -17,20 +17,23 @@ export const getPastorHome = async (req, res) => {
 
 export const postPastorHome = async (req, res) => {
   const {
-    file: { mimetype, filename },
+    file: { mimetype, originalname, path },
     file: jsonFile
   } = req;
   const type = mimetype.split("/")[0];
+  const name = originalname.split(".")[0];
   try {
     if (type === "image") {
       await prisma.createImage({
-        name: filename,
+        name,
+        path,
         file: jsonFile
       });
     }
     if (type === "video") {
       await prisma.createVideo({
-        title: filename,
+        title: name,
+        path,
         file: jsonFile
       });
     }

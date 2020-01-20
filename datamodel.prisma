@@ -6,11 +6,20 @@ type User {
 type Image {
   id: ID! @id
   name: String!
+  path: String!
   file: Json!
 }
 
 type Video {
   id: ID! @id
   title: String!
+  path: String!
+  file: Json!
+}
+
+type article {
+  id: ID! @id
+  title: String!
+  content: String!
   file: Json!
 }
