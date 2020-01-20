@@ -3,7 +3,8 @@ include mixins/test
 
 block content
     div search
-        each a in contents
+        each item in contents
             +test({
-                src: a.path
+                title: item.title,
+                content: item.content
             })

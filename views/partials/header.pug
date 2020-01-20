@@ -24,12 +24,12 @@ header.header
         li EN
         li
             .searching
-                img.search-img(src="icon-img/search_icon.png")
-                .searching-bar
+                img.search-img#jsSearchingIcon(src="icon-img/search_icon.png")
+                .searching-bar.hidden#jsSearchingBar
                     form(action=routes.search, method="get")
                         input(type="text", name="term", placeholder="검색어 입력")
                         input(type="submit", value="검색")
-                .searching-nipple    
+                .searching-nipple.hidden#jsSearchingNipple    
         li
             a(href=routes.seniorPastor)
                 img.user-img(src="icon-img/preist_icon.png")

@@ -29,7 +29,7 @@ export const search = async (req, res) => {
   } = req;
   let contents = [];
   try {
-    contents = await prisma.images({ where: { name: "콩이❤" } }).path();
+    contents = await prisma.articles({ where: { content_contains: term } });
     res.status(200);
     res.render("search", { pageTitle: "Search", contents });
   } catch (error) {

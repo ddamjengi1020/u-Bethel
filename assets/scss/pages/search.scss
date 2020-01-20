@@ -1,0 +1,25 @@
+.search-page{
+    position: absolute;
+    top: 140px;
+    left: 0;
+    width: 100%;
+    height: fit-content;
+    background-color: white;
+    z-index: 8;
+    margin-bottom: 760px;
+    .text{
+        left: 0;
+        right: 0;
+        margin: auto;
+        padding: 100px;
+        width: 700px;
+        text-align: center;
+        .content-title{
+            font-size: 50px;
+            font-weight: 700;
+        }
+        text{
+            font-size: 20px;
+        }
+    }
+}
