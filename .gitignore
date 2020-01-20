@@ -112,3 +112,5 @@ static
 font
 icon_img
 upload
+datamodel.prisma
+generated
