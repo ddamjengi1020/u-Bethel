@@ -86,6 +86,17 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./assets/js/header.js":
+/*!*****************************!*\
+  !*** ./assets/js/header.js ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("var searchingIcon = document.getElementById(\"jsSearchingIcon\");\nvar searchingBar = document.getElementById(\"jsSearchingBar\");\nvar Nipple = document.getElementById(\"jsSearchingNipple\");\nvar header = document.getElementById(\"jsHeader\");\n\nfunction handleHidden() {\n  if (searchingBar.className === \"searching-bar hidden\") {\n    searchingBar.classList.remove(\"hidden\");\n    Nipple.classList.remove(\"hidden\");\n  } else {\n    searchingBar.classList.add(\"hidden\");\n    Nipple.classList.add(\"hidden\");\n  }\n}\n\nfunction handleScroll() {\n  if (window.scrollY > 0) {\n    header.classList.add(\"header-scroll\");\n    header.classList.remove(\"header\");\n  } else {\n    header.classList.remove(\"header-scroll\");\n    header.classList.add(\"header\");\n  }\n}\n\nfunction init() {\n  searchingIcon.addEventListener(\"click\", handleHidden);\n  window.addEventListener(\"scroll\", handleScroll);\n}\n\ninit();\n\n//# sourceURL=webpack:///./assets/js/header.js?");
+
+/***/ }),
+
 /***/ "./assets/js/main.js":
 /*!***************************!*\
   !*** ./assets/js/main.js ***!
@@ -94,18 +105,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/styles.scss */ \"./assets/scss/styles.scss\");\n/* harmony import */ var _scss_styles_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_styles_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _search__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./search */ \"./assets/js/search.js\");\n/* harmony import */ var _search__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_search__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\n//# sourceURL=webpack:///./assets/js/main.js?");
-
-/***/ }),
-
-/***/ "./assets/js/search.js":
-/*!*****************************!*\
-  !*** ./assets/js/search.js ***!
-  \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("var searchingIcon = document.getElementById(\"jsSearchingIcon\");\nvar searchingBar = document.getElementById(\"jsSearchingBar\");\nvar Nipple = document.getElementById(\"jsSearchingNipple\");\n\nfunction handleHidden() {\n  if (searchingBar.className === \"searching-bar hidden\") {\n    searchingBar.classList.remove(\"hidden\");\n    Nipple.classList.remove(\"hidden\");\n  } else {\n    searchingBar.classList.add(\"hidden\");\n    Nipple.classList.add(\"hidden\");\n  }\n}\n\nfunction init() {\n  searchingIcon.addEventListener(\"click\", handleHidden);\n}\n\ninit();\n\n//# sourceURL=webpack:///./assets/js/search.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/styles.scss */ \"./assets/scss/styles.scss\");\n/* harmony import */ var _scss_styles_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_styles_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./header */ \"./assets/js/header.js\");\n/* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_header__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\n//# sourceURL=webpack:///./assets/js/main.js?");
 
 /***/ }),
 
