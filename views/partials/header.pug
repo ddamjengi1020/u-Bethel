@@ -29,7 +29,8 @@ header.header#jsHeader
                     form(action=routes.search, method="get")
                         input(type="text", name="term", placeholder="검색어 입력")
                         input(type="submit", value="검색")
-                .searching-nipple.hidden#jsSearchingNipple    
+                .searching-nipple.hidden#jsSearchingNipple
+                .searching-nipple-small.hidden#jsNippleSmall 
         li
             a(href=routes.seniorPastor)
-                img.user-img#jsUserImg(src="icon-img/preist_icon.png")
+                img.user-img#jsUserIcon(src="icon-img/preist_icon.png")
