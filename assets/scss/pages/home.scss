@@ -1,7 +1,62 @@
 .image-test--home{
+    position: relative;
     width: 100%;
     margin-bottom: 755px;
-    img{
+    .main-img{
         width: 100%;
+        background-color: black;
+        img{
+            width: 100%;
+        }
+    }
+    .main-img__left{
+        position: absolute;
+        top: 200px;
+        left: 100px;
+        cursor: pointer;
+    }
+    .main-img__right{
+        position: absolute;
+        top: 200px;
+        left: 215px;
+        cursor: pointer;
+    }
+}
+
+
+// Main Image Slider Animation
+
+.slider0{
+    animation: slider0 2s linear;
+}
+.slider1{
+    animation: slider1 2s linear;
+}
+.slider2{
+    animation: slider2 2s linear;
+}
+
+@keyframes slider0 {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+@keyframes slider1 {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+@keyframes slider2 {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
     }
 }

@@ -93,7 +93,18 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("var searchingIcon = document.getElementById(\"jsSearchingIcon\");\nvar searchingBar = document.getElementById(\"jsSearchingBar\");\nvar Nipple = document.getElementById(\"jsSearchingNipple\");\nvar header = document.getElementById(\"jsHeader\");\n\nfunction handleHidden() {\n  if (searchingBar.className === \"searching-bar hidden\") {\n    searchingBar.classList.remove(\"hidden\");\n    Nipple.classList.remove(\"hidden\");\n  } else {\n    searchingBar.classList.add(\"hidden\");\n    Nipple.classList.add(\"hidden\");\n  }\n}\n\nfunction handleScroll() {\n  if (window.scrollY > 0) {\n    header.classList.add(\"header-scroll\");\n    header.classList.remove(\"header\");\n  } else {\n    header.classList.remove(\"header-scroll\");\n    header.classList.add(\"header\");\n  }\n}\n\nfunction init() {\n  searchingIcon.addEventListener(\"click\", handleHidden);\n  window.addEventListener(\"scroll\", handleScroll);\n}\n\ninit();\n\n//# sourceURL=webpack:///./assets/js/header.js?");
+eval("var searchingIcon = document.getElementById(\"jsSearchingIcon\");\nvar mainLogo = document.getElementById(\"jsMainlogo\");\nvar userImg = document.getElementById(\"jsUserImg\");\nvar searchingBar = document.getElementById(\"jsSearchingBar\");\nvar Nipple = document.getElementById(\"jsSearchingNipple\");\nvar header = document.getElementById(\"jsHeader\");\n\nfunction handleHidden() {\n  if (searchingBar.className === \"searching-bar hidden\") {\n    searchingBar.classList.remove(\"hidden\");\n    Nipple.classList.remove(\"hidden\");\n  } else {\n    searchingBar.classList.add(\"hidden\");\n    Nipple.classList.add(\"hidden\");\n  }\n}\n\nfunction handleScroll() {\n  if (window.scrollY > 0) {\n    header.classList.add(\"header-scroll\");\n    header.classList.remove(\"header\");\n    mainLogo.src = \"icon-img/logo_bottom.png\";\n  } else {\n    header.classList.remove(\"header-scroll\");\n    header.classList.add(\"header\");\n    mainLogo.src = \"icon-img/logo_top.png\";\n  }\n}\n\nfunction init() {\n  searchingIcon.addEventListener(\"click\", handleHidden);\n  window.addEventListener(\"scroll\", handleScroll);\n}\n\ninit();\n\n//# sourceURL=webpack:///./assets/js/header.js?");
+
+/***/ }),
+
+/***/ "./assets/js/home.js":
+/*!***************************!*\
+  !*** ./assets/js/home.js ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("var mainImg = document.getElementById(\"jsMainImg\");\nvar arrowLeft = document.getElementById(\"jsArrowLeft\");\nvar arrowRight = document.getElementById(\"jsArrowRight\");\nvar imageList = [\"icon-img/dog1.jpg\", \"icon-img/dog2.jpg\", \"icon-img/dog3.jpg\"];\nvar num = 0;\nmainImg.src = imageList[0];\n\nfunction handleNextImg() {\n  num++;\n\n  if (num >= imageList.length) {\n    num = 0;\n  }\n\n  mainImg.src = imageList[num];\n  mainImg.className = \"main-img slider\".concat(num);\n}\n\nfunction handlePreImg() {\n  num--;\n\n  if (num < 0) {\n    num = imageList.length - 1;\n  }\n\n  mainImg.src = imageList[num];\n  mainImg.className = \"main-img slider\".concat(num);\n}\n\nfunction init() {\n  arrowRight.addEventListener(\"click\", handleNextImg);\n  arrowLeft.addEventListener(\"click\", handlePreImg);\n}\n\ninit();\n\n//# sourceURL=webpack:///./assets/js/home.js?");
 
 /***/ }),
 
@@ -105,7 +116,7 @@ eval("var searchingIcon = document.getElementById(\"jsSearchingIcon\");\nvar sea
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/styles.scss */ \"./assets/scss/styles.scss\");\n/* harmony import */ var _scss_styles_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_styles_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./header */ \"./assets/js/header.js\");\n/* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_header__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\n//# sourceURL=webpack:///./assets/js/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/styles.scss */ \"./assets/scss/styles.scss\");\n/* harmony import */ var _scss_styles_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_styles_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./header */ \"./assets/js/header.js\");\n/* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_header__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./home */ \"./assets/js/home.js\");\n/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_home__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\n\n//# sourceURL=webpack:///./assets/js/main.js?");
 
 /***/ }),
 

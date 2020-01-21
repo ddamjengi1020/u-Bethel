@@ -2,4 +2,7 @@ extends layouts/main
 
 block content
     .image-test--home
-        img(src="icon-img/dog1.jpg")
+        .main-img.slider
+            img#jsMainImg
+        img.main-img__left#jsArrowLeft(src="icon-img/arrow_left.png")
+        img.main-img__right#jsArrowRight(src="icon-img/arrow_right.png")
