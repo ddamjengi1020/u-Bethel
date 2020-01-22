@@ -18,7 +18,7 @@ app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
 app.use("/upload", express.static(path.join(__dirname, "upload")));
 app.use("/icon-img", express.static(path.join(__dirname, "icon_img")));
-app.use("/font", express.static("font"));
+app.use("/font", express.static(path.join(__dirname, "font")));
 app.use("/static", express.static(path.join(__dirname, "static")));
 app.use(morgan("dev"));
 app.use(bodyParser.json());
