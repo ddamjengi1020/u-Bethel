@@ -35,7 +35,7 @@ app.set("view engine", "pug");
 app.set("views", _path["default"].join(__dirname, "views"));
 app.use("/upload", _express["default"]["static"](_path["default"].join(__dirname, "upload")));
 app.use("/icon-img", _express["default"]["static"](_path["default"].join(__dirname, "icon_img")));
-app.use("/font", _express["default"]["static"]("font"));
+app.use("/font", _express["default"]["static"](_path["default"].join(__dirname, "font")));
 app.use("/static", _express["default"]["static"](_path["default"].join(__dirname, "static")));
 app.use((0, _morgan["default"])("dev"));
 app.use(_bodyParser["default"].json());
