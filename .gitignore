@@ -109,5 +109,4 @@ dist
 node_modules
 package-lock.json
 static
-font
 upload
