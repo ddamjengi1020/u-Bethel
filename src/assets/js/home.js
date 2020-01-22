@@ -7,6 +7,7 @@ const imageList = [
   "icon-img/dog2.jpg",
   "icon-img/dog3.jpg"
 ];
+
 let num = 0;
 mainImg.src = imageList[0];
 

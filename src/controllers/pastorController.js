@@ -1,5 +1,9 @@
 import routes from "../routes";
 import { prisma } from "../generated/prisma-client";
+import ip from "ip";
+
+//  User ID
+const myIP = ip.address();
 
 export const getPastorHome = async (req, res) => {
   const image = await prisma.images();
@@ -9,9 +13,9 @@ export const getPastorHome = async (req, res) => {
   if (imgLength > 0 && vrdLength > 0) {
     const imagePath = image[imgLength - 1].path;
     const videoPath = video[vrdLength - 1].path;
-    res.render("pastor", { pageTitle: "Home", imagePath, videoPath });
+    res.render("pastor", { pageTitle: "Home", imagePath, videoPath, myIP });
   } else {
-    res.render("pastor", { pageTitle: "Home" });
+    res.render("pastor", { pageTitle: "Home", myIP });
   }
 };
 

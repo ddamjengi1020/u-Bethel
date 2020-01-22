@@ -1,0 +1,10 @@
+extends layouts/main
+
+block content
+    .joinForm-container
+        form(action=routes.join, method="post")
+            input(type="text", placeholder="Fullname", name="name", required=true)
+            input(type="email", placeholder="Email", name="email", required=true)
+            input(type="password", placeholder="Password", name="password1", required=true)
+            input(type="password", placeholder="Confirm Password", name="password2", required=true)
+            input(type="submit", value="가입")

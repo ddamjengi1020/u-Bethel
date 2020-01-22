@@ -1,0 +1,13 @@
+extends layouts/main
+include mixins/test
+
+block content
+    div search
+    if contents.length === 0
+        div.searching-message NOT FOUND!
+    else
+        each item in contents
+            +test({
+                title: item.title,
+                content: item.content
+            })

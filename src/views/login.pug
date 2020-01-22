@@ -1,0 +1,8 @@
+extends layouts/main
+
+block content
+    .loginform-container
+        form(action=routes.login, method="post")
+            input(type="email", placeholder="Email", name="email", required=true)
+            input(type="password", placeholder="Password", name="password", required=true)
+            input(type="submit", value="로그인")

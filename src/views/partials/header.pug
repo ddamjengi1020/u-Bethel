@@ -1,0 +1,36 @@
+header.header#jsHeader
+    .header__logo-container
+        span
+            a(href=routes.home)
+                img.mainlogo#jsMainlogo(src="icon-img/logo_top.png")
+    nav.header__nav
+        ul.header__nav-list
+            li 
+                a(href=routes.home) HOME
+            li
+                a(href=routes.about) 교회소개
+            li
+                a(href=routes.worship) 예배
+            li
+                a(href=routes.life) 교회생활
+            li
+                a(href=routes.school) 교육/양육
+            li 
+                a(href=routes.community) 공동체
+            li 
+                a(href=routes.story) 벧엘스토리
+    ul.header__convenience
+        li KO
+        li EN
+        li
+            .searching
+                img.search-img#jsSearchingIcon(src="icon-img/search_icon.png")
+                .searching-bar.hidden#jsSearchingBar
+                    form(action=routes.search, method="get")
+                        input(type="text", name="term", placeholder="검색어 입력")
+                        input(type="submit", value="검색")
+                .searching-nipple.hidden#jsSearchingNipple
+                .searching-nipple-small.hidden#jsNippleSmall 
+        li
+            a(href=routes.seniorPastor)
+                img.user-img#jsUserIcon(src="icon-img/preist_icon.png")

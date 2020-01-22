@@ -3,8 +3,9 @@ import morgan from "morgan";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import helmet from "helmet";
-import routes from "./routes";
+import path from "path";
 
+import routes from "./routes";
 import { localsMiddleware } from "./middlewares";
 import globalRouter from "./routers/globalRouter";
 import userRouter from "./routers/userRouter";
@@ -14,10 +15,11 @@ const app = express();
 
 app.use(helmet());
 app.set("view engine", "pug");
+app.set("views", path.join(__dirname, "views"));
 app.use("/upload", express.static("upload"));
 app.use("/icon-img", express.static("icon_img"));
 app.use("/font", express.static("font"));
-app.use("/static", express.static("static"));
+app.use("/static", express.static(path.join(__dirname, "static")));
 app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

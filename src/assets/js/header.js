@@ -5,7 +5,6 @@ const searchingBar = document.getElementById("jsSearchingBar");
 const nipple = document.getElementById("jsSearchingNipple");
 const nippleSmall = document.getElementById("jsNippleSmall");
 const header = document.getElementById("jsHeader");
-console.log(nippleSmall.className);
 function handleHidden() {
   if (searchingBar.className === "searching-bar hidden") {
     searchingBar.classList.remove("hidden");
