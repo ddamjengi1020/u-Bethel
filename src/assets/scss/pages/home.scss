@@ -4,7 +4,6 @@
     // margin-bottom: 755px;
     .main-img{
         width: 100%;
-        background-color: black;
         img{
             width: 100%;
         }
@@ -63,21 +62,138 @@
 
 .home__article{
     margin: 0;
+    padding: 80px 150px;
     .primary__section-one{
+        display: flex;
+        justify-content: center;
         width: 100%;
+        margin-bottom: 95px;
         .primary__title{
+            padding: 40px;
             display: flex;
-            justify-content: space-around;
-            .primary__subtitle{
-                font-weight: 700;
-                font-size: 20px;
+            flex-direction: column;
+            margin-left: 20px;
+            span{
+                font-family: SCDream3;
+                font-size: 35px;
+                color: #545262;
+                margin-bottom: 13px;
             }
-            .primary__description{
-                .primary__description-string{
-                    color: yellow;
-                    font-weight: 500;   
+            .primary__title-submain{
+                display: flex;                
+                .primary__subtitle{
+                    width: 100%;
+                    word-break: break-all;
+                    margin-right: 90px;
+                    span{
+                        font-weight: 700;
+                        font-size: 46px;
+                        font-family: BinggraeⅡ;
+                        line-height: 1.3;
+                    }
+                }
+                .primary__description{
+                    width: 100%;
+                    word-break: break-all;
+                    span{
+                        font-size: 23px;
+                        line-height: 1.3;
+                    }
+                    strong{
+                        color: #c2a081;
+                        font-weight: 600;
+                    }
+                    
                 }
             }
         }
-    }   
+    }
+    .primary__section-two{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 250px;
+        .primary-box{
+            position: relative;
+            &:not(:last-child){
+                margin-right: 120px;
+            }
+            &:nth-child(2){
+                margin-top: 170px;
+            }
+            .primary__number{
+                font-family: HSbombaram;
+                font-size: 130px;
+                position: absolute;
+                top: -82px;
+                left: -60px;
+                color: #dadada;
+                z-index: -1;
+            }
+            .primary__semititle{
+                display: flex;
+                flex-direction: column;
+                span:first-child{
+                    font-family: SCDream5;
+                    font-size: 35px;
+                    margin-bottom: 15px;
+                    color: #3e3c49;
+                }
+                span:nth-child(2){
+                    font-family: SCDream4;
+                    font-size: 16px;
+                    color: #5f5c6b;
+                    line-height: 1.4;
+                    strong{
+                        color: #c2a081;
+                        font-weight: 600;
+                    }
+                    margin-bottom: 17px;
+                }
+                img{
+                    width: 340px;
+                }
+                
+            }
+            
+        }
+    }
+    .primary__section-three{
+        .primary__guide{
+            display: flex;
+            justify-content: space-around;
+            .guide-box{
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                position: relative;
+                .guide-bgbox{
+                    width: 370px;
+                    height: 370px;
+                    background-color: #dbc3ae;
+                    z-index: -1;
+                }
+                .bgbox-i{
+                    position: absolute;
+                    top: -40px;
+                    left: -40px;
+                }
+                .bgbox-u{
+                    position: absolute;
+                    bottom: 25px;
+                    right: -40px;
+                }
+                img{
+                    width: 570px;
+                    box-shadow: 5px 5px 10px rgb(136, 135, 135);
+                }
+                span{
+                    font-family: BinggraeⅡ;
+                    font-size: 45px;
+                    font-weight: 700;
+                    margin-top: 20px;
+                    color: #3e3c49;
+                }
+            }
+        }
+    }
 }
