@@ -10,7 +10,6 @@ import { localsMiddleware } from "./middlewares";
 import globalRouter from "./routers/globalRouter";
 import userRouter from "./routers/userRouter";
 import pastorRouter from "./routers/pastorRouter";
-import "./insta";
 
 const app = express();
 

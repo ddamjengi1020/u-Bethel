@@ -20,5 +20,5 @@
 
 + [x] DB(prisma)
 
-+ [ ] Cloud Server(heroku)
++ [X] Cloud Server(heroku)
 

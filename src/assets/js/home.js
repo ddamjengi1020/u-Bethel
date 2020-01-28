@@ -3,7 +3,7 @@ const arrowLeft = document.getElementById("jsArrowLeft");
 const arrowRight = document.getElementById("jsArrowRight");
 
 const imageList = [
-  "icon-img/dog1.jpg",
+  "icon-img/Slide_img1.png",
   "icon-img/dog2.jpg",
   "icon-img/dog3.jpg"
 ];

@@ -60,3 +60,24 @@
         opacity: 1;
     }
 }
+
+.home__article{
+    margin: 0;
+    .primary__section-one{
+        width: 100%;
+        .primary__title{
+            display: flex;
+            justify-content: space-around;
+            .primary__subtitle{
+                font-weight: 700;
+                font-size: 20px;
+            }
+            .primary__description{
+                .primary__description-string{
+                    color: yellow;
+                    font-weight: 500;   
+                }
+            }
+        }
+    }   
+}
