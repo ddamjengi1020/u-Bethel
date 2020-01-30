@@ -1,4 +1,4 @@
-header.header#jsHeader
+header.header.default#jsHeader
     .header__logo-container
         span
             a(href=routes.home)
@@ -6,22 +6,22 @@ header.header#jsHeader
     nav.header__nav
         ul.header__nav-list
             li 
-                a(href=routes.home) HOME
+                a.nav-name.default(href=routes.home) HOME
             li
-                a(href=routes.about) 교회소개
+                a.nav-name.default(href=routes.about) 교회소개
             li
-                a(href=routes.worship) 예배
+                a.nav-name.default(href=routes.worship) 예배
             li
-                a(href=routes.life) 교회생활
+                a.nav-name.default(href=routes.life) 교회생활
             li
-                a(href=routes.school) 교육/양육
+                a.nav-name.default(href=routes.school) 교육/양육
             li 
-                a(href=routes.community) 공동체
+                a.nav-name.default(href=routes.community) 공동체
             li 
-                a(href=routes.story) 벧엘스토리
+                a.nav-name.default(href=routes.story) 벧엘스토리
     ul.header__convenience
-        li KO
-        li EN
+        li.nav-name.default KO
+        li.nav-name.default EN
         li
             .searching
                 img.search-img#jsSearchingIcon(src="icon-img/search_icon.png")

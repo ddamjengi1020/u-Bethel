@@ -67,7 +67,7 @@
 }
 
 .home__article{
-    padding: 80px 150px;
+    padding: 80px 150px 150px 120px;
     background-color: #f0f0f0;
     .primary__section-one{
         
@@ -118,7 +118,7 @@
     .primary__section-two{
         display: flex;
         justify-content: space-between;
-        margin-bottom: 250px;
+        margin-bottom: 210px;
         .primary-box{
             position: relative;
             &:not(:last-child){
@@ -134,7 +134,7 @@
                 top: -82px;
                 left: -60px;
                 color: #dadada;
-                z-index: -1;
+                z-index: 0;
             }
             .primary__semititle{
                 display: flex;
@@ -144,6 +144,7 @@
                     font-size: 35px;
                     margin-bottom: 15px;
                     color: #3e3c49;
+                    z-index: 2;
                 }
                 span:nth-child(2){
                     font-family: SCDream4;
@@ -156,8 +157,47 @@
                     }
                     margin-bottom: 17px;
                 }
-                img{
+                a{
+                    position: relative;
                     width: 340px;
+                    height: 269px;
+                    .primary-hoverbox{
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        margin: auto;
+                        background-color: rgba(0, 0, 0, 0.39);
+                        width: 100%;
+                        height: 100%;
+                        opacity: 0;
+                        transition: opacity 0.2s linear;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        img{
+                            margin-top: 10px;
+                            width: 80px;
+                            height: 80px;
+                        }
+                        span{
+                            margin-top: 16px;
+                            color: white;
+                            font-family: SCDream3;
+                            font-weight: 500;
+                            font-size: 27px;
+                        }
+                    }
+                    .primary-hoverbox:hover{
+                        opacity: 1;
+                    }
+                    img{
+                        width: 100%;
+                        height: 100%;
+                    }
+
                 }
                 
             }
@@ -177,7 +217,7 @@
                     width: 370px;
                     height: 370px;
                     background-color: #dbc3ae;
-                    z-index: -1;
+                    z-index: 0;
                 }
                 .bgbox-i{
                     position: absolute;
@@ -189,16 +229,57 @@
                     bottom: 25px;
                     right: -40px;
                 }
-                img{
-                    width: 570px;
-                    box-shadow: 5px 5px 10px rgb(136, 135, 135);
-                }
+                a{
+                    position: relative;
+                    z-index: 2;
+                    max-width: 570px;
+                    max-height: 379.5px;
+                    .guide-hoverbox{
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(0, 0, 0, 0.425);
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        margin: auto;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        opacity: 0;
+                        transition: opacity 0.2s linear;
+                        img{
+                            width: 130px;
+                        }
+                        span{
+                            margin-top: 40px;
+                            font-family: SCDream3;
+                            font-weight: 500;
+                            font-size: 40px;
+                            color: white;
+                        }
+                    }
+                    .guide-hoverbox:hover{
+                        opacity: 1;
+                    }
+                    .guide-img{
+                        width: 100%;
+                        box-shadow: 5px 5px 10px rgb(136, 135, 135);
+                    }
+                }                
+                
                 span{
-                    font-family: BinggraeⅡ;
+                    font-family: SCDream5;
                     font-size: 45px;
                     font-weight: 700;
                     margin-top: 20px;
                     color: #3e3c49;
+                    z-index: 2;
+                    strong{
+                        font-family: georgiaz;
+                    }
                 }
             }
         }
@@ -209,21 +290,70 @@
     margin-top: 0;
     background-color: #e8e8e8;
     .home__bethelstory{
+        padding: 86px 130px;
         .home__bethelstory__section-one{
             text-align: center;
             .bethelstory-title{
-                margin-bottom: 40px;
+                margin-bottom: 20px;
                 display: block;
+                span{
+                    font-size: 60px;
+                    font-family: SCDream5;
+                    color: #3e3c49;
+                }
                 .bethelstory-description{
+                    margin-top: 18px;
                     display: grid;
                     grid-template-columns: repeat(3, 1fr);
+                    span{
+                        font-family: SCDream3;
+                        color: #575565;
+                        font-size: 30px;
+                    }
+                    .bethelstory-nav{
+                        display: flex;
+                        justify-content: space-around;
+                        span{
+                            font-family: SCDream5;
+                            color: #ad2a2d;
+                            font-size: 25px;
+                            padding-bottom: 8px;;
+                            border-bottom: 2px solid #ad2a2d;
+                            cursor: pointer;
+                        }
+                    }
                 }
             }
             .bethelstory-main{
-                .bethelstory-contents__img{
-                    width: 100%;
-                    img{
+                .bethelstory-contents{
+                    position: relative;
+                    .bethelstory-contents__img{
                         width: 100%;
+                        img{
+                            width: 100%;
+                        }
+                    }
+                    .bethelstory-left{
+                        position: absolute;
+                        top: 64px;
+                        left: 58px;
+                        cursor: pointer;
+                    }
+                    .bethelstory-right{
+                        position: absolute;
+                        top: 64px;
+                        left: 158px;
+                        cursor: pointer;
+                    }
+                    .playbtn-red{
+                        width: 120px;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        margin: auto;
+                        cursor: pointer;
                     }
                 }
             }
