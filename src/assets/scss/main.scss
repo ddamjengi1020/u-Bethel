@@ -2,6 +2,9 @@ html,body{
     height: 100%;
     background-color: #ebebeb;
 }
+body{
+    overflow-x: hidden;
+}
 
 a{
     text-decoration: none;
