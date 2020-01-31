@@ -35,11 +35,13 @@ function handlePreImg() {
 }
 
 function handleLeftSlider() {
-  sliderMaskBox.style.animation = "bethelstoryDefault 1s linear forwards";
+  if (sliderMaskBox.style.animation) {
+    sliderMaskBox.style.animation = "bethelstoryDefault 0.7s linear forwards";
+  }
 }
 
 function handleRightSlider() {
-  sliderMaskBox.style.animation = "bethelstorySlider 1s linear forwards";
+  sliderMaskBox.style.animation = "bethelstorySlider 0.7s linear forwards";
 }
 
 function handleRedLeftArrow() {
