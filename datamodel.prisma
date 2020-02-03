@@ -17,9 +17,26 @@ type Video {
   file: Json!
 }
 
-type article {
+type Worship {
   id: ID! @id
   title: String!
   content: String!
   file: Json!
+  createAt: String!
+}
+
+type Life {
+  id: ID! @id
+  title: String!
+  content: String!
+  file: Json!
+  createAt: String!
+}
+
+type Story {
+  id: ID! @id
+  title: String!
+  content: String!
+  file: Json!
+  createAt: String!
 }

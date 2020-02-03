@@ -15,15 +15,17 @@
         }
     }
     .main-img__left{
+        width: 80px;
         position: absolute;
-        top: 200px;
-        left: 100px;
+        top: 500px;
+        left: 300px;
         cursor: pointer;
     }
     .main-img__right{
+        width: 80px;
         position: absolute;
-        top: 200px;
-        left: 215px;
+        top: 500px;
+        left: 415px;
         cursor: pointer;
     }
 }

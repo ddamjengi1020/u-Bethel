@@ -3,13 +3,16 @@ const HOME = "/";
 const JOIN = "/join";
 const LOGIN = "/login";
 const LOGOUT = "/logout";
-const SEARCH = "/search";
 const ABOUT = "/about";
 const WORSHIP = "/worship";
 const LIFE = "/life";
 const SCHOOL = "/school";
 const COMMUNITY = "/community";
 const STORY = "/story";
+const SEARCH = "/search";
+const SEARCHWORSHIP = "/worship";
+const SEARCHLIFE = "/life";
+const SEARCHSTORY = "/story";
 
 //  User
 const USER = "/users";
@@ -29,6 +32,9 @@ const routes = {
   login: LOGIN,
   logout: LOGOUT,
   search: SEARCH,
+  searchWorship: SEARCHWORSHIP,
+  searchLife: SEARCHLIFE,
+  searchStory: SEARCHSTORY,
   about: ABOUT,
   worship: WORSHIP,
   life: LIFE,

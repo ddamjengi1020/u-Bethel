@@ -10,16 +10,17 @@ import { localsMiddleware } from "./middlewares";
 import globalRouter from "./routers/globalRouter";
 import userRouter from "./routers/userRouter";
 import pastorRouter from "./routers/pastorRouter";
+import searchRouter from "./routers/searchRouter";
 
 const app = express();
 
 app.use(helmet());
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
-app.use("/upload", express.static(path.join(__dirname, "upload")));
-app.use("/icon-img", express.static(path.join(__dirname, "icon_img")));
-app.use("/font", express.static(path.join(__dirname, "font")));
-app.use("/static", express.static(path.join(__dirname, "static")));
+app.use("*/upload", express.static(path.join(__dirname, "upload")));
+app.use("*/icon-img", express.static(path.join(__dirname, "icon_img")));
+app.use("*/font", express.static(path.join(__dirname, "font")));
+app.use("*/static", express.static(path.join(__dirname, "static")));
 app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,6 +29,7 @@ app.use(cookieParser());
 app.use(localsMiddleware);
 
 app.use(routes.home, globalRouter);
+app.use(routes.search, searchRouter);
 app.use(routes.user, userRouter);
 app.use(routes.seniorPastor, pastorRouter);
 

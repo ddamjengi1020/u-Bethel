@@ -17,7 +17,15 @@ var models = [
     embedded: false
   },
   {
-    name: "article",
+    name: "Worship",
+    embedded: false
+  },
+  {
+    name: "Life",
+    embedded: false
+  },
+  {
+    name: "Story",
     embedded: false
   }
 ];

@@ -3,11 +3,15 @@ module.exports = {
   // Please don't change this file manually but run `prisma generate` to update it.
   // For more information, please read the docs: https://www.prisma.io/docs/prisma-client/
 
-/* GraphQL */ `type Aggregatearticle {
+/* GraphQL */ `type AggregateImage {
   count: Int!
 }
 
-type AggregateImage {
+type AggregateLife {
+  count: Int!
+}
+
+type AggregateStory {
   count: Int!
 }
 
@@ -19,129 +23,8 @@ type AggregateVideo {
   count: Int!
 }
 
-type article {
-  id: ID!
-  title: String!
-  content: String!
-  file: Json!
-}
-
-type articleConnection {
-  pageInfo: PageInfo!
-  edges: [articleEdge]!
-  aggregate: Aggregatearticle!
-}
-
-input articleCreateInput {
-  id: ID
-  title: String!
-  content: String!
-  file: Json!
-}
-
-type articleEdge {
-  node: article!
-  cursor: String!
-}
-
-enum articleOrderByInput {
-  id_ASC
-  id_DESC
-  title_ASC
-  title_DESC
-  content_ASC
-  content_DESC
-  file_ASC
-  file_DESC
-}
-
-type articlePreviousValues {
-  id: ID!
-  title: String!
-  content: String!
-  file: Json!
-}
-
-type articleSubscriptionPayload {
-  mutation: MutationType!
-  node: article
-  updatedFields: [String!]
-  previousValues: articlePreviousValues
-}
-
-input articleSubscriptionWhereInput {
-  mutation_in: [MutationType!]
-  updatedFields_contains: String
-  updatedFields_contains_every: [String!]
-  updatedFields_contains_some: [String!]
-  node: articleWhereInput
-  AND: [articleSubscriptionWhereInput!]
-  OR: [articleSubscriptionWhereInput!]
-  NOT: [articleSubscriptionWhereInput!]
-}
-
-input articleUpdateInput {
-  title: String
-  content: String
-  file: Json
-}
-
-input articleUpdateManyMutationInput {
-  title: String
-  content: String
-  file: Json
-}
-
-input articleWhereInput {
-  id: ID
-  id_not: ID
-  id_in: [ID!]
-  id_not_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_gt: ID
-  id_gte: ID
-  id_contains: ID
-  id_not_contains: ID
-  id_starts_with: ID
-  id_not_starts_with: ID
-  id_ends_with: ID
-  id_not_ends_with: ID
-  title: String
-  title_not: String
-  title_in: [String!]
-  title_not_in: [String!]
-  title_lt: String
-  title_lte: String
-  title_gt: String
-  title_gte: String
-  title_contains: String
-  title_not_contains: String
-  title_starts_with: String
-  title_not_starts_with: String
-  title_ends_with: String
-  title_not_ends_with: String
-  content: String
-  content_not: String
-  content_in: [String!]
-  content_not_in: [String!]
-  content_lt: String
-  content_lte: String
-  content_gt: String
-  content_gte: String
-  content_contains: String
-  content_not_contains: String
-  content_starts_with: String
-  content_not_starts_with: String
-  content_ends_with: String
-  content_not_ends_with: String
-  AND: [articleWhereInput!]
-  OR: [articleWhereInput!]
-  NOT: [articleWhereInput!]
-}
-
-input articleWhereUniqueInput {
-  id: ID
+type AggregateWorship {
+  count: Int!
 }
 
 type BatchPayload {
@@ -275,6 +158,152 @@ input ImageWhereUniqueInput {
 
 scalar Json
 
+type Life {
+  id: ID!
+  title: String!
+  content: String!
+  file: Json!
+  createAt: String!
+}
+
+type LifeConnection {
+  pageInfo: PageInfo!
+  edges: [LifeEdge]!
+  aggregate: AggregateLife!
+}
+
+input LifeCreateInput {
+  id: ID
+  title: String!
+  content: String!
+  file: Json!
+  createAt: String!
+}
+
+type LifeEdge {
+  node: Life!
+  cursor: String!
+}
+
+enum LifeOrderByInput {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  content_ASC
+  content_DESC
+  file_ASC
+  file_DESC
+  createAt_ASC
+  createAt_DESC
+}
+
+type LifePreviousValues {
+  id: ID!
+  title: String!
+  content: String!
+  file: Json!
+  createAt: String!
+}
+
+type LifeSubscriptionPayload {
+  mutation: MutationType!
+  node: Life
+  updatedFields: [String!]
+  previousValues: LifePreviousValues
+}
+
+input LifeSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: LifeWhereInput
+  AND: [LifeSubscriptionWhereInput!]
+  OR: [LifeSubscriptionWhereInput!]
+  NOT: [LifeSubscriptionWhereInput!]
+}
+
+input LifeUpdateInput {
+  title: String
+  content: String
+  file: Json
+  createAt: String
+}
+
+input LifeUpdateManyMutationInput {
+  title: String
+  content: String
+  file: Json
+  createAt: String
+}
+
+input LifeWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  content: String
+  content_not: String
+  content_in: [String!]
+  content_not_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_gt: String
+  content_gte: String
+  content_contains: String
+  content_not_contains: String
+  content_starts_with: String
+  content_not_starts_with: String
+  content_ends_with: String
+  content_not_ends_with: String
+  createAt: String
+  createAt_not: String
+  createAt_in: [String!]
+  createAt_not_in: [String!]
+  createAt_lt: String
+  createAt_lte: String
+  createAt_gt: String
+  createAt_gte: String
+  createAt_contains: String
+  createAt_not_contains: String
+  createAt_starts_with: String
+  createAt_not_starts_with: String
+  createAt_ends_with: String
+  createAt_not_ends_with: String
+  AND: [LifeWhereInput!]
+  OR: [LifeWhereInput!]
+  NOT: [LifeWhereInput!]
+}
+
+input LifeWhereUniqueInput {
+  id: ID
+}
+
 scalar Long
 
 type Mutation {
@@ -284,6 +313,18 @@ type Mutation {
   upsertImage(where: ImageWhereUniqueInput!, create: ImageCreateInput!, update: ImageUpdateInput!): Image!
   deleteImage(where: ImageWhereUniqueInput!): Image
   deleteManyImages(where: ImageWhereInput): BatchPayload!
+  createLife(data: LifeCreateInput!): Life!
+  updateLife(data: LifeUpdateInput!, where: LifeWhereUniqueInput!): Life
+  updateManyLives(data: LifeUpdateManyMutationInput!, where: LifeWhereInput): BatchPayload!
+  upsertLife(where: LifeWhereUniqueInput!, create: LifeCreateInput!, update: LifeUpdateInput!): Life!
+  deleteLife(where: LifeWhereUniqueInput!): Life
+  deleteManyLives(where: LifeWhereInput): BatchPayload!
+  createStory(data: StoryCreateInput!): Story!
+  updateStory(data: StoryUpdateInput!, where: StoryWhereUniqueInput!): Story
+  updateManyStories(data: StoryUpdateManyMutationInput!, where: StoryWhereInput): BatchPayload!
+  upsertStory(where: StoryWhereUniqueInput!, create: StoryCreateInput!, update: StoryUpdateInput!): Story!
+  deleteStory(where: StoryWhereUniqueInput!): Story
+  deleteManyStories(where: StoryWhereInput): BatchPayload!
   createUser(data: UserCreateInput!): User!
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
@@ -296,12 +337,12 @@ type Mutation {
   upsertVideo(where: VideoWhereUniqueInput!, create: VideoCreateInput!, update: VideoUpdateInput!): Video!
   deleteVideo(where: VideoWhereUniqueInput!): Video
   deleteManyVideos(where: VideoWhereInput): BatchPayload!
-  createarticle(data: articleCreateInput!): article!
-  updatearticle(data: articleUpdateInput!, where: articleWhereUniqueInput!): article
-  updateManyarticles(data: articleUpdateManyMutationInput!, where: articleWhereInput): BatchPayload!
-  upsertarticle(where: articleWhereUniqueInput!, create: articleCreateInput!, update: articleUpdateInput!): article!
-  deletearticle(where: articleWhereUniqueInput!): article
-  deleteManyarticles(where: articleWhereInput): BatchPayload!
+  createWorship(data: WorshipCreateInput!): Worship!
+  updateWorship(data: WorshipUpdateInput!, where: WorshipWhereUniqueInput!): Worship
+  updateManyWorships(data: WorshipUpdateManyMutationInput!, where: WorshipWhereInput): BatchPayload!
+  upsertWorship(where: WorshipWhereUniqueInput!, create: WorshipCreateInput!, update: WorshipUpdateInput!): Worship!
+  deleteWorship(where: WorshipWhereUniqueInput!): Worship
+  deleteManyWorships(where: WorshipWhereInput): BatchPayload!
 }
 
 enum MutationType {
@@ -325,23 +366,177 @@ type Query {
   image(where: ImageWhereUniqueInput!): Image
   images(where: ImageWhereInput, orderBy: ImageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Image]!
   imagesConnection(where: ImageWhereInput, orderBy: ImageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ImageConnection!
+  life(where: LifeWhereUniqueInput!): Life
+  lives(where: LifeWhereInput, orderBy: LifeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Life]!
+  livesConnection(where: LifeWhereInput, orderBy: LifeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): LifeConnection!
+  story(where: StoryWhereUniqueInput!): Story
+  stories(where: StoryWhereInput, orderBy: StoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Story]!
+  storiesConnection(where: StoryWhereInput, orderBy: StoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): StoryConnection!
   user(where: UserWhereUniqueInput!): User
   users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
   usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
   video(where: VideoWhereUniqueInput!): Video
   videos(where: VideoWhereInput, orderBy: VideoOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Video]!
   videosConnection(where: VideoWhereInput, orderBy: VideoOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): VideoConnection!
-  article(where: articleWhereUniqueInput!): article
-  articles(where: articleWhereInput, orderBy: articleOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [article]!
-  articlesConnection(where: articleWhereInput, orderBy: articleOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): articleConnection!
+  worship(where: WorshipWhereUniqueInput!): Worship
+  worships(where: WorshipWhereInput, orderBy: WorshipOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Worship]!
+  worshipsConnection(where: WorshipWhereInput, orderBy: WorshipOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): WorshipConnection!
   node(id: ID!): Node
+}
+
+type Story {
+  id: ID!
+  title: String!
+  content: String!
+  file: Json!
+  createAt: String!
+}
+
+type StoryConnection {
+  pageInfo: PageInfo!
+  edges: [StoryEdge]!
+  aggregate: AggregateStory!
+}
+
+input StoryCreateInput {
+  id: ID
+  title: String!
+  content: String!
+  file: Json!
+  createAt: String!
+}
+
+type StoryEdge {
+  node: Story!
+  cursor: String!
+}
+
+enum StoryOrderByInput {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  content_ASC
+  content_DESC
+  file_ASC
+  file_DESC
+  createAt_ASC
+  createAt_DESC
+}
+
+type StoryPreviousValues {
+  id: ID!
+  title: String!
+  content: String!
+  file: Json!
+  createAt: String!
+}
+
+type StorySubscriptionPayload {
+  mutation: MutationType!
+  node: Story
+  updatedFields: [String!]
+  previousValues: StoryPreviousValues
+}
+
+input StorySubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: StoryWhereInput
+  AND: [StorySubscriptionWhereInput!]
+  OR: [StorySubscriptionWhereInput!]
+  NOT: [StorySubscriptionWhereInput!]
+}
+
+input StoryUpdateInput {
+  title: String
+  content: String
+  file: Json
+  createAt: String
+}
+
+input StoryUpdateManyMutationInput {
+  title: String
+  content: String
+  file: Json
+  createAt: String
+}
+
+input StoryWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  content: String
+  content_not: String
+  content_in: [String!]
+  content_not_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_gt: String
+  content_gte: String
+  content_contains: String
+  content_not_contains: String
+  content_starts_with: String
+  content_not_starts_with: String
+  content_ends_with: String
+  content_not_ends_with: String
+  createAt: String
+  createAt_not: String
+  createAt_in: [String!]
+  createAt_not_in: [String!]
+  createAt_lt: String
+  createAt_lte: String
+  createAt_gt: String
+  createAt_gte: String
+  createAt_contains: String
+  createAt_not_contains: String
+  createAt_starts_with: String
+  createAt_not_starts_with: String
+  createAt_ends_with: String
+  createAt_not_ends_with: String
+  AND: [StoryWhereInput!]
+  OR: [StoryWhereInput!]
+  NOT: [StoryWhereInput!]
+}
+
+input StoryWhereUniqueInput {
+  id: ID
 }
 
 type Subscription {
   image(where: ImageSubscriptionWhereInput): ImageSubscriptionPayload
+  life(where: LifeSubscriptionWhereInput): LifeSubscriptionPayload
+  story(where: StorySubscriptionWhereInput): StorySubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
   video(where: VideoSubscriptionWhereInput): VideoSubscriptionPayload
-  article(where: articleSubscriptionWhereInput): articleSubscriptionPayload
+  worship(where: WorshipSubscriptionWhereInput): WorshipSubscriptionPayload
 }
 
 type User {
@@ -563,6 +758,152 @@ input VideoWhereInput {
 }
 
 input VideoWhereUniqueInput {
+  id: ID
+}
+
+type Worship {
+  id: ID!
+  title: String!
+  content: String!
+  file: Json!
+  createAt: String!
+}
+
+type WorshipConnection {
+  pageInfo: PageInfo!
+  edges: [WorshipEdge]!
+  aggregate: AggregateWorship!
+}
+
+input WorshipCreateInput {
+  id: ID
+  title: String!
+  content: String!
+  file: Json!
+  createAt: String!
+}
+
+type WorshipEdge {
+  node: Worship!
+  cursor: String!
+}
+
+enum WorshipOrderByInput {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  content_ASC
+  content_DESC
+  file_ASC
+  file_DESC
+  createAt_ASC
+  createAt_DESC
+}
+
+type WorshipPreviousValues {
+  id: ID!
+  title: String!
+  content: String!
+  file: Json!
+  createAt: String!
+}
+
+type WorshipSubscriptionPayload {
+  mutation: MutationType!
+  node: Worship
+  updatedFields: [String!]
+  previousValues: WorshipPreviousValues
+}
+
+input WorshipSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: WorshipWhereInput
+  AND: [WorshipSubscriptionWhereInput!]
+  OR: [WorshipSubscriptionWhereInput!]
+  NOT: [WorshipSubscriptionWhereInput!]
+}
+
+input WorshipUpdateInput {
+  title: String
+  content: String
+  file: Json
+  createAt: String
+}
+
+input WorshipUpdateManyMutationInput {
+  title: String
+  content: String
+  file: Json
+  createAt: String
+}
+
+input WorshipWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  content: String
+  content_not: String
+  content_in: [String!]
+  content_not_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_gt: String
+  content_gte: String
+  content_contains: String
+  content_not_contains: String
+  content_starts_with: String
+  content_not_starts_with: String
+  content_ends_with: String
+  content_not_ends_with: String
+  createAt: String
+  createAt_not: String
+  createAt_in: [String!]
+  createAt_not_in: [String!]
+  createAt_lt: String
+  createAt_lte: String
+  createAt_gt: String
+  createAt_gte: String
+  createAt_contains: String
+  createAt_not_contains: String
+  createAt_starts_with: String
+  createAt_not_starts_with: String
+  createAt_ends_with: String
+  createAt_not_ends_with: String
+  AND: [WorshipWhereInput!]
+  OR: [WorshipWhereInput!]
+  NOT: [WorshipWhereInput!]
+}
+
+input WorshipWhereUniqueInput {
   id: ID
 }
 `

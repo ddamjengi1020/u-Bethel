@@ -1,36 +1,60 @@
-.search-page{
-    position: absolute;
-    top: 116px;
-    left: 0;
-    width: 100%;
-    height: fit-content;
+.search {
+    padding: 115px 320px;
     background-color: white;
-    z-index: 8;
-    margin-bottom: 760px;
-    .text{
-        left: 0;
-        right: 0;
-        margin: auto;
-        padding: 100px;
-        width: 700px;
-        text-align: center;
-        .content-title{
-            font-size: 50px;
-            font-weight: 700;
-        }
-        text{
-            font-size: 20px;
+    .search__bar {
+        margin-top: 90px;
+        margin-bottom: 10px;
+        width: 100%;
+        form{
+            max-width: 100%;
+            max-width: 878.4px;
+            position: relative;
+            input:first-child{
+                width: 91.5%;
+                padding: 22px 30px;
+                border: 7px solid #c4c4c4;
+                font-size: 23px;
+                outline: none;
+            }
+            .btn-submit {
+                width: 35px;
+                position: absolute;
+                top: 23px;
+                right: 30px;
+                margin: auto;
+                cursor: pointer;
+            }
         }
     }
-}
-
-.searching-message{
-    position: absolute;
-    top: 116px;
-    left: 0;
-    width: 100%;
-    height: fit-content;
-    background-color: white;
-    z-index: 8;
-    margin-bottom: 760px;
+    .search__message {
+        margin-left: 33px;
+        font-size: 20px;
+        strong {
+            color: #9e0b0f;
+            border-bottom: 1.5px solid #9e0b0f;
+        }
+    }
+    .search__nav {
+        margin-top: 80px;
+        max-width: 660px;
+        ul{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            text-align: center;
+            border: 1.5px solid #9e0b0f;
+            a{
+                &:not(:last-child){               
+                    border-right: 1.5px solid #9e0b0f;
+                }
+                li{
+                    padding: 10px;
+                    cursor: pointer;
+                }
+                li:hover{
+                    background-color: #9e0b0f;
+                    color: white;
+                }
+            }
+        }
+    }
 }

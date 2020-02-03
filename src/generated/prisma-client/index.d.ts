@@ -17,9 +17,11 @@ export type Maybe<T> = T | undefined | null;
 
 export interface Exists {
   image: (where?: ImageWhereInput) => Promise<boolean>;
+  life: (where?: LifeWhereInput) => Promise<boolean>;
+  story: (where?: StoryWhereInput) => Promise<boolean>;
   user: (where?: UserWhereInput) => Promise<boolean>;
   video: (where?: VideoWhereInput) => Promise<boolean>;
-  article: (where?: articleWhereInput) => Promise<boolean>;
+  worship: (where?: WorshipWhereInput) => Promise<boolean>;
 }
 
 export interface Node {}
@@ -60,6 +62,44 @@ export interface Prisma {
     first?: Int;
     last?: Int;
   }) => ImageConnectionPromise;
+  life: (where: LifeWhereUniqueInput) => LifeNullablePromise;
+  lives: (args?: {
+    where?: LifeWhereInput;
+    orderBy?: LifeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<Life>;
+  livesConnection: (args?: {
+    where?: LifeWhereInput;
+    orderBy?: LifeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => LifeConnectionPromise;
+  story: (where: StoryWhereUniqueInput) => StoryNullablePromise;
+  stories: (args?: {
+    where?: StoryWhereInput;
+    orderBy?: StoryOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<Story>;
+  storiesConnection: (args?: {
+    where?: StoryWhereInput;
+    orderBy?: StoryOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => StoryConnectionPromise;
   user: (where: UserWhereUniqueInput) => UserNullablePromise;
   users: (args?: {
     where?: UserWhereInput;
@@ -98,25 +138,25 @@ export interface Prisma {
     first?: Int;
     last?: Int;
   }) => VideoConnectionPromise;
-  article: (where: articleWhereUniqueInput) => articleNullablePromise;
-  articles: (args?: {
-    where?: articleWhereInput;
-    orderBy?: articleOrderByInput;
+  worship: (where: WorshipWhereUniqueInput) => WorshipNullablePromise;
+  worships: (args?: {
+    where?: WorshipWhereInput;
+    orderBy?: WorshipOrderByInput;
     skip?: Int;
     after?: String;
     before?: String;
     first?: Int;
     last?: Int;
-  }) => FragmentableArray<article>;
-  articlesConnection: (args?: {
-    where?: articleWhereInput;
-    orderBy?: articleOrderByInput;
+  }) => FragmentableArray<Worship>;
+  worshipsConnection: (args?: {
+    where?: WorshipWhereInput;
+    orderBy?: WorshipOrderByInput;
     skip?: Int;
     after?: String;
     before?: String;
     first?: Int;
     last?: Int;
-  }) => articleConnectionPromise;
+  }) => WorshipConnectionPromise;
   node: (args: { id: ID_Output }) => Node;
 
   /**
@@ -139,6 +179,38 @@ export interface Prisma {
   }) => ImagePromise;
   deleteImage: (where: ImageWhereUniqueInput) => ImagePromise;
   deleteManyImages: (where?: ImageWhereInput) => BatchPayloadPromise;
+  createLife: (data: LifeCreateInput) => LifePromise;
+  updateLife: (args: {
+    data: LifeUpdateInput;
+    where: LifeWhereUniqueInput;
+  }) => LifePromise;
+  updateManyLives: (args: {
+    data: LifeUpdateManyMutationInput;
+    where?: LifeWhereInput;
+  }) => BatchPayloadPromise;
+  upsertLife: (args: {
+    where: LifeWhereUniqueInput;
+    create: LifeCreateInput;
+    update: LifeUpdateInput;
+  }) => LifePromise;
+  deleteLife: (where: LifeWhereUniqueInput) => LifePromise;
+  deleteManyLives: (where?: LifeWhereInput) => BatchPayloadPromise;
+  createStory: (data: StoryCreateInput) => StoryPromise;
+  updateStory: (args: {
+    data: StoryUpdateInput;
+    where: StoryWhereUniqueInput;
+  }) => StoryPromise;
+  updateManyStories: (args: {
+    data: StoryUpdateManyMutationInput;
+    where?: StoryWhereInput;
+  }) => BatchPayloadPromise;
+  upsertStory: (args: {
+    where: StoryWhereUniqueInput;
+    create: StoryCreateInput;
+    update: StoryUpdateInput;
+  }) => StoryPromise;
+  deleteStory: (where: StoryWhereUniqueInput) => StoryPromise;
+  deleteManyStories: (where?: StoryWhereInput) => BatchPayloadPromise;
   createUser: (data: UserCreateInput) => UserPromise;
   updateUser: (args: {
     data: UserUpdateInput;
@@ -171,22 +243,22 @@ export interface Prisma {
   }) => VideoPromise;
   deleteVideo: (where: VideoWhereUniqueInput) => VideoPromise;
   deleteManyVideos: (where?: VideoWhereInput) => BatchPayloadPromise;
-  createarticle: (data: articleCreateInput) => articlePromise;
-  updatearticle: (args: {
-    data: articleUpdateInput;
-    where: articleWhereUniqueInput;
-  }) => articlePromise;
-  updateManyarticles: (args: {
-    data: articleUpdateManyMutationInput;
-    where?: articleWhereInput;
+  createWorship: (data: WorshipCreateInput) => WorshipPromise;
+  updateWorship: (args: {
+    data: WorshipUpdateInput;
+    where: WorshipWhereUniqueInput;
+  }) => WorshipPromise;
+  updateManyWorships: (args: {
+    data: WorshipUpdateManyMutationInput;
+    where?: WorshipWhereInput;
   }) => BatchPayloadPromise;
-  upsertarticle: (args: {
-    where: articleWhereUniqueInput;
-    create: articleCreateInput;
-    update: articleUpdateInput;
-  }) => articlePromise;
-  deletearticle: (where: articleWhereUniqueInput) => articlePromise;
-  deleteManyarticles: (where?: articleWhereInput) => BatchPayloadPromise;
+  upsertWorship: (args: {
+    where: WorshipWhereUniqueInput;
+    create: WorshipCreateInput;
+    update: WorshipUpdateInput;
+  }) => WorshipPromise;
+  deleteWorship: (where: WorshipWhereUniqueInput) => WorshipPromise;
+  deleteManyWorships: (where?: WorshipWhereInput) => BatchPayloadPromise;
 
   /**
    * Subscriptions
@@ -199,15 +271,21 @@ export interface Subscription {
   image: (
     where?: ImageSubscriptionWhereInput
   ) => ImageSubscriptionPayloadSubscription;
+  life: (
+    where?: LifeSubscriptionWhereInput
+  ) => LifeSubscriptionPayloadSubscription;
+  story: (
+    where?: StorySubscriptionWhereInput
+  ) => StorySubscriptionPayloadSubscription;
   user: (
     where?: UserSubscriptionWhereInput
   ) => UserSubscriptionPayloadSubscription;
   video: (
     where?: VideoSubscriptionWhereInput
   ) => VideoSubscriptionPayloadSubscription;
-  article: (
-    where?: articleSubscriptionWhereInput
-  ) => articleSubscriptionPayloadSubscription;
+  worship: (
+    where?: WorshipSubscriptionWhereInput
+  ) => WorshipSubscriptionPayloadSubscription;
 }
 
 export interface ClientConstructor<T> {
@@ -228,6 +306,30 @@ export type ImageOrderByInput =
   | "file_ASC"
   | "file_DESC";
 
+export type LifeOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "title_ASC"
+  | "title_DESC"
+  | "content_ASC"
+  | "content_DESC"
+  | "file_ASC"
+  | "file_DESC"
+  | "createAt_ASC"
+  | "createAt_DESC";
+
+export type StoryOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "title_ASC"
+  | "title_DESC"
+  | "content_ASC"
+  | "content_DESC"
+  | "file_ASC"
+  | "file_DESC"
+  | "createAt_ASC"
+  | "createAt_DESC";
+
 export type UserOrderByInput = "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC";
 
 export type VideoOrderByInput =
@@ -240,7 +342,7 @@ export type VideoOrderByInput =
   | "file_ASC"
   | "file_DESC";
 
-export type articleOrderByInput =
+export type WorshipOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "title_ASC"
@@ -248,7 +350,9 @@ export type articleOrderByInput =
   | "content_ASC"
   | "content_DESC"
   | "file_ASC"
-  | "file_DESC";
+  | "file_DESC"
+  | "createAt_ASC"
+  | "createAt_DESC";
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
@@ -302,6 +406,138 @@ export interface ImageWhereInput {
   AND?: Maybe<ImageWhereInput[] | ImageWhereInput>;
   OR?: Maybe<ImageWhereInput[] | ImageWhereInput>;
   NOT?: Maybe<ImageWhereInput[] | ImageWhereInput>;
+}
+
+export type LifeWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface LifeWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  title?: Maybe<String>;
+  title_not?: Maybe<String>;
+  title_in?: Maybe<String[] | String>;
+  title_not_in?: Maybe<String[] | String>;
+  title_lt?: Maybe<String>;
+  title_lte?: Maybe<String>;
+  title_gt?: Maybe<String>;
+  title_gte?: Maybe<String>;
+  title_contains?: Maybe<String>;
+  title_not_contains?: Maybe<String>;
+  title_starts_with?: Maybe<String>;
+  title_not_starts_with?: Maybe<String>;
+  title_ends_with?: Maybe<String>;
+  title_not_ends_with?: Maybe<String>;
+  content?: Maybe<String>;
+  content_not?: Maybe<String>;
+  content_in?: Maybe<String[] | String>;
+  content_not_in?: Maybe<String[] | String>;
+  content_lt?: Maybe<String>;
+  content_lte?: Maybe<String>;
+  content_gt?: Maybe<String>;
+  content_gte?: Maybe<String>;
+  content_contains?: Maybe<String>;
+  content_not_contains?: Maybe<String>;
+  content_starts_with?: Maybe<String>;
+  content_not_starts_with?: Maybe<String>;
+  content_ends_with?: Maybe<String>;
+  content_not_ends_with?: Maybe<String>;
+  createAt?: Maybe<String>;
+  createAt_not?: Maybe<String>;
+  createAt_in?: Maybe<String[] | String>;
+  createAt_not_in?: Maybe<String[] | String>;
+  createAt_lt?: Maybe<String>;
+  createAt_lte?: Maybe<String>;
+  createAt_gt?: Maybe<String>;
+  createAt_gte?: Maybe<String>;
+  createAt_contains?: Maybe<String>;
+  createAt_not_contains?: Maybe<String>;
+  createAt_starts_with?: Maybe<String>;
+  createAt_not_starts_with?: Maybe<String>;
+  createAt_ends_with?: Maybe<String>;
+  createAt_not_ends_with?: Maybe<String>;
+  AND?: Maybe<LifeWhereInput[] | LifeWhereInput>;
+  OR?: Maybe<LifeWhereInput[] | LifeWhereInput>;
+  NOT?: Maybe<LifeWhereInput[] | LifeWhereInput>;
+}
+
+export type StoryWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface StoryWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  title?: Maybe<String>;
+  title_not?: Maybe<String>;
+  title_in?: Maybe<String[] | String>;
+  title_not_in?: Maybe<String[] | String>;
+  title_lt?: Maybe<String>;
+  title_lte?: Maybe<String>;
+  title_gt?: Maybe<String>;
+  title_gte?: Maybe<String>;
+  title_contains?: Maybe<String>;
+  title_not_contains?: Maybe<String>;
+  title_starts_with?: Maybe<String>;
+  title_not_starts_with?: Maybe<String>;
+  title_ends_with?: Maybe<String>;
+  title_not_ends_with?: Maybe<String>;
+  content?: Maybe<String>;
+  content_not?: Maybe<String>;
+  content_in?: Maybe<String[] | String>;
+  content_not_in?: Maybe<String[] | String>;
+  content_lt?: Maybe<String>;
+  content_lte?: Maybe<String>;
+  content_gt?: Maybe<String>;
+  content_gte?: Maybe<String>;
+  content_contains?: Maybe<String>;
+  content_not_contains?: Maybe<String>;
+  content_starts_with?: Maybe<String>;
+  content_not_starts_with?: Maybe<String>;
+  content_ends_with?: Maybe<String>;
+  content_not_ends_with?: Maybe<String>;
+  createAt?: Maybe<String>;
+  createAt_not?: Maybe<String>;
+  createAt_in?: Maybe<String[] | String>;
+  createAt_not_in?: Maybe<String[] | String>;
+  createAt_lt?: Maybe<String>;
+  createAt_lte?: Maybe<String>;
+  createAt_gt?: Maybe<String>;
+  createAt_gte?: Maybe<String>;
+  createAt_contains?: Maybe<String>;
+  createAt_not_contains?: Maybe<String>;
+  createAt_starts_with?: Maybe<String>;
+  createAt_not_starts_with?: Maybe<String>;
+  createAt_ends_with?: Maybe<String>;
+  createAt_not_ends_with?: Maybe<String>;
+  AND?: Maybe<StoryWhereInput[] | StoryWhereInput>;
+  OR?: Maybe<StoryWhereInput[] | StoryWhereInput>;
+  NOT?: Maybe<StoryWhereInput[] | StoryWhereInput>;
 }
 
 export type UserWhereUniqueInput = AtLeastOne<{
@@ -394,11 +630,11 @@ export interface VideoWhereInput {
   NOT?: Maybe<VideoWhereInput[] | VideoWhereInput>;
 }
 
-export type articleWhereUniqueInput = AtLeastOne<{
+export type WorshipWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
 
-export interface articleWhereInput {
+export interface WorshipWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -441,9 +677,23 @@ export interface articleWhereInput {
   content_not_starts_with?: Maybe<String>;
   content_ends_with?: Maybe<String>;
   content_not_ends_with?: Maybe<String>;
-  AND?: Maybe<articleWhereInput[] | articleWhereInput>;
-  OR?: Maybe<articleWhereInput[] | articleWhereInput>;
-  NOT?: Maybe<articleWhereInput[] | articleWhereInput>;
+  createAt?: Maybe<String>;
+  createAt_not?: Maybe<String>;
+  createAt_in?: Maybe<String[] | String>;
+  createAt_not_in?: Maybe<String[] | String>;
+  createAt_lt?: Maybe<String>;
+  createAt_lte?: Maybe<String>;
+  createAt_gt?: Maybe<String>;
+  createAt_gte?: Maybe<String>;
+  createAt_contains?: Maybe<String>;
+  createAt_not_contains?: Maybe<String>;
+  createAt_starts_with?: Maybe<String>;
+  createAt_not_starts_with?: Maybe<String>;
+  createAt_ends_with?: Maybe<String>;
+  createAt_not_ends_with?: Maybe<String>;
+  AND?: Maybe<WorshipWhereInput[] | WorshipWhereInput>;
+  OR?: Maybe<WorshipWhereInput[] | WorshipWhereInput>;
+  NOT?: Maybe<WorshipWhereInput[] | WorshipWhereInput>;
 }
 
 export interface ImageCreateInput {
@@ -463,6 +713,50 @@ export interface ImageUpdateManyMutationInput {
   name?: Maybe<String>;
   path?: Maybe<String>;
   file?: Maybe<Json>;
+}
+
+export interface LifeCreateInput {
+  id?: Maybe<ID_Input>;
+  title: String;
+  content: String;
+  file: Json;
+  createAt: String;
+}
+
+export interface LifeUpdateInput {
+  title?: Maybe<String>;
+  content?: Maybe<String>;
+  file?: Maybe<Json>;
+  createAt?: Maybe<String>;
+}
+
+export interface LifeUpdateManyMutationInput {
+  title?: Maybe<String>;
+  content?: Maybe<String>;
+  file?: Maybe<Json>;
+  createAt?: Maybe<String>;
+}
+
+export interface StoryCreateInput {
+  id?: Maybe<ID_Input>;
+  title: String;
+  content: String;
+  file: Json;
+  createAt: String;
+}
+
+export interface StoryUpdateInput {
+  title?: Maybe<String>;
+  content?: Maybe<String>;
+  file?: Maybe<Json>;
+  createAt?: Maybe<String>;
+}
+
+export interface StoryUpdateManyMutationInput {
+  title?: Maybe<String>;
+  content?: Maybe<String>;
+  file?: Maybe<Json>;
+  createAt?: Maybe<String>;
 }
 
 export interface UserCreateInput {
@@ -497,23 +791,26 @@ export interface VideoUpdateManyMutationInput {
   file?: Maybe<Json>;
 }
 
-export interface articleCreateInput {
+export interface WorshipCreateInput {
   id?: Maybe<ID_Input>;
   title: String;
   content: String;
   file: Json;
+  createAt: String;
 }
 
-export interface articleUpdateInput {
+export interface WorshipUpdateInput {
   title?: Maybe<String>;
   content?: Maybe<String>;
   file?: Maybe<Json>;
+  createAt?: Maybe<String>;
 }
 
-export interface articleUpdateManyMutationInput {
+export interface WorshipUpdateManyMutationInput {
   title?: Maybe<String>;
   content?: Maybe<String>;
   file?: Maybe<Json>;
+  createAt?: Maybe<String>;
 }
 
 export interface ImageSubscriptionWhereInput {
@@ -525,6 +822,28 @@ export interface ImageSubscriptionWhereInput {
   AND?: Maybe<ImageSubscriptionWhereInput[] | ImageSubscriptionWhereInput>;
   OR?: Maybe<ImageSubscriptionWhereInput[] | ImageSubscriptionWhereInput>;
   NOT?: Maybe<ImageSubscriptionWhereInput[] | ImageSubscriptionWhereInput>;
+}
+
+export interface LifeSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<LifeWhereInput>;
+  AND?: Maybe<LifeSubscriptionWhereInput[] | LifeSubscriptionWhereInput>;
+  OR?: Maybe<LifeSubscriptionWhereInput[] | LifeSubscriptionWhereInput>;
+  NOT?: Maybe<LifeSubscriptionWhereInput[] | LifeSubscriptionWhereInput>;
+}
+
+export interface StorySubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<StoryWhereInput>;
+  AND?: Maybe<StorySubscriptionWhereInput[] | StorySubscriptionWhereInput>;
+  OR?: Maybe<StorySubscriptionWhereInput[] | StorySubscriptionWhereInput>;
+  NOT?: Maybe<StorySubscriptionWhereInput[] | StorySubscriptionWhereInput>;
 }
 
 export interface UserSubscriptionWhereInput {
@@ -549,15 +868,15 @@ export interface VideoSubscriptionWhereInput {
   NOT?: Maybe<VideoSubscriptionWhereInput[] | VideoSubscriptionWhereInput>;
 }
 
-export interface articleSubscriptionWhereInput {
+export interface WorshipSubscriptionWhereInput {
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
   updatedFields_contains_every?: Maybe<String[] | String>;
   updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<articleWhereInput>;
-  AND?: Maybe<articleSubscriptionWhereInput[] | articleSubscriptionWhereInput>;
-  OR?: Maybe<articleSubscriptionWhereInput[] | articleSubscriptionWhereInput>;
-  NOT?: Maybe<articleSubscriptionWhereInput[] | articleSubscriptionWhereInput>;
+  node?: Maybe<WorshipWhereInput>;
+  AND?: Maybe<WorshipSubscriptionWhereInput[] | WorshipSubscriptionWhereInput>;
+  OR?: Maybe<WorshipSubscriptionWhereInput[] | WorshipSubscriptionWhereInput>;
+  NOT?: Maybe<WorshipSubscriptionWhereInput[] | WorshipSubscriptionWhereInput>;
 }
 
 export interface NodeNode {
@@ -669,6 +988,186 @@ export interface AggregateImagePromise
 
 export interface AggregateImageSubscription
   extends Promise<AsyncIterator<AggregateImage>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface Life {
+  id: ID_Output;
+  title: String;
+  content: String;
+  file: Json;
+  createAt: String;
+}
+
+export interface LifePromise extends Promise<Life>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  title: () => Promise<String>;
+  content: () => Promise<String>;
+  file: () => Promise<Json>;
+  createAt: () => Promise<String>;
+}
+
+export interface LifeSubscription
+  extends Promise<AsyncIterator<Life>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  title: () => Promise<AsyncIterator<String>>;
+  content: () => Promise<AsyncIterator<String>>;
+  file: () => Promise<AsyncIterator<Json>>;
+  createAt: () => Promise<AsyncIterator<String>>;
+}
+
+export interface LifeNullablePromise
+  extends Promise<Life | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  title: () => Promise<String>;
+  content: () => Promise<String>;
+  file: () => Promise<Json>;
+  createAt: () => Promise<String>;
+}
+
+export interface LifeConnection {
+  pageInfo: PageInfo;
+  edges: LifeEdge[];
+}
+
+export interface LifeConnectionPromise
+  extends Promise<LifeConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<LifeEdge>>() => T;
+  aggregate: <T = AggregateLifePromise>() => T;
+}
+
+export interface LifeConnectionSubscription
+  extends Promise<AsyncIterator<LifeConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<LifeEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateLifeSubscription>() => T;
+}
+
+export interface LifeEdge {
+  node: Life;
+  cursor: String;
+}
+
+export interface LifeEdgePromise extends Promise<LifeEdge>, Fragmentable {
+  node: <T = LifePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface LifeEdgeSubscription
+  extends Promise<AsyncIterator<LifeEdge>>,
+    Fragmentable {
+  node: <T = LifeSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateLife {
+  count: Int;
+}
+
+export interface AggregateLifePromise
+  extends Promise<AggregateLife>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateLifeSubscription
+  extends Promise<AsyncIterator<AggregateLife>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface Story {
+  id: ID_Output;
+  title: String;
+  content: String;
+  file: Json;
+  createAt: String;
+}
+
+export interface StoryPromise extends Promise<Story>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  title: () => Promise<String>;
+  content: () => Promise<String>;
+  file: () => Promise<Json>;
+  createAt: () => Promise<String>;
+}
+
+export interface StorySubscription
+  extends Promise<AsyncIterator<Story>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  title: () => Promise<AsyncIterator<String>>;
+  content: () => Promise<AsyncIterator<String>>;
+  file: () => Promise<AsyncIterator<Json>>;
+  createAt: () => Promise<AsyncIterator<String>>;
+}
+
+export interface StoryNullablePromise
+  extends Promise<Story | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  title: () => Promise<String>;
+  content: () => Promise<String>;
+  file: () => Promise<Json>;
+  createAt: () => Promise<String>;
+}
+
+export interface StoryConnection {
+  pageInfo: PageInfo;
+  edges: StoryEdge[];
+}
+
+export interface StoryConnectionPromise
+  extends Promise<StoryConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<StoryEdge>>() => T;
+  aggregate: <T = AggregateStoryPromise>() => T;
+}
+
+export interface StoryConnectionSubscription
+  extends Promise<AsyncIterator<StoryConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<StoryEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateStorySubscription>() => T;
+}
+
+export interface StoryEdge {
+  node: Story;
+  cursor: String;
+}
+
+export interface StoryEdgePromise extends Promise<StoryEdge>, Fragmentable {
+  node: <T = StoryPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface StoryEdgeSubscription
+  extends Promise<AsyncIterator<StoryEdge>>,
+    Fragmentable {
+  node: <T = StorySubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateStory {
+  count: Int;
+}
+
+export interface AggregateStoryPromise
+  extends Promise<AggregateStory>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateStorySubscription
+  extends Promise<AsyncIterator<AggregateStory>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
@@ -837,88 +1336,92 @@ export interface AggregateVideoSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface article {
+export interface Worship {
   id: ID_Output;
   title: String;
   content: String;
   file: Json;
+  createAt: String;
 }
 
-export interface articlePromise extends Promise<article>, Fragmentable {
+export interface WorshipPromise extends Promise<Worship>, Fragmentable {
   id: () => Promise<ID_Output>;
   title: () => Promise<String>;
   content: () => Promise<String>;
   file: () => Promise<Json>;
+  createAt: () => Promise<String>;
 }
 
-export interface articleSubscription
-  extends Promise<AsyncIterator<article>>,
+export interface WorshipSubscription
+  extends Promise<AsyncIterator<Worship>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   title: () => Promise<AsyncIterator<String>>;
   content: () => Promise<AsyncIterator<String>>;
   file: () => Promise<AsyncIterator<Json>>;
+  createAt: () => Promise<AsyncIterator<String>>;
 }
 
-export interface articleNullablePromise
-  extends Promise<article | null>,
+export interface WorshipNullablePromise
+  extends Promise<Worship | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
   title: () => Promise<String>;
   content: () => Promise<String>;
   file: () => Promise<Json>;
+  createAt: () => Promise<String>;
 }
 
-export interface articleConnection {
+export interface WorshipConnection {
   pageInfo: PageInfo;
-  edges: articleEdge[];
+  edges: WorshipEdge[];
 }
 
-export interface articleConnectionPromise
-  extends Promise<articleConnection>,
+export interface WorshipConnectionPromise
+  extends Promise<WorshipConnection>,
     Fragmentable {
   pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<articleEdge>>() => T;
-  aggregate: <T = AggregatearticlePromise>() => T;
+  edges: <T = FragmentableArray<WorshipEdge>>() => T;
+  aggregate: <T = AggregateWorshipPromise>() => T;
 }
 
-export interface articleConnectionSubscription
-  extends Promise<AsyncIterator<articleConnection>>,
+export interface WorshipConnectionSubscription
+  extends Promise<AsyncIterator<WorshipConnection>>,
     Fragmentable {
   pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<articleEdgeSubscription>>>() => T;
-  aggregate: <T = AggregatearticleSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<WorshipEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateWorshipSubscription>() => T;
 }
 
-export interface articleEdge {
-  node: article;
+export interface WorshipEdge {
+  node: Worship;
   cursor: String;
 }
 
-export interface articleEdgePromise extends Promise<articleEdge>, Fragmentable {
-  node: <T = articlePromise>() => T;
+export interface WorshipEdgePromise extends Promise<WorshipEdge>, Fragmentable {
+  node: <T = WorshipPromise>() => T;
   cursor: () => Promise<String>;
 }
 
-export interface articleEdgeSubscription
-  extends Promise<AsyncIterator<articleEdge>>,
+export interface WorshipEdgeSubscription
+  extends Promise<AsyncIterator<WorshipEdge>>,
     Fragmentable {
-  node: <T = articleSubscription>() => T;
+  node: <T = WorshipSubscription>() => T;
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface Aggregatearticle {
+export interface AggregateWorship {
   count: Int;
 }
 
-export interface AggregatearticlePromise
-  extends Promise<Aggregatearticle>,
+export interface AggregateWorshipPromise
+  extends Promise<AggregateWorship>,
     Fragmentable {
   count: () => Promise<Int>;
 }
 
-export interface AggregatearticleSubscription
-  extends Promise<AsyncIterator<Aggregatearticle>>,
+export interface AggregateWorshipSubscription
+  extends Promise<AsyncIterator<AggregateWorship>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
@@ -987,6 +1490,112 @@ export interface ImagePreviousValuesSubscription
   name: () => Promise<AsyncIterator<String>>;
   path: () => Promise<AsyncIterator<String>>;
   file: () => Promise<AsyncIterator<Json>>;
+}
+
+export interface LifeSubscriptionPayload {
+  mutation: MutationType;
+  node: Life;
+  updatedFields: String[];
+  previousValues: LifePreviousValues;
+}
+
+export interface LifeSubscriptionPayloadPromise
+  extends Promise<LifeSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = LifePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = LifePreviousValuesPromise>() => T;
+}
+
+export interface LifeSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<LifeSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = LifeSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = LifePreviousValuesSubscription>() => T;
+}
+
+export interface LifePreviousValues {
+  id: ID_Output;
+  title: String;
+  content: String;
+  file: Json;
+  createAt: String;
+}
+
+export interface LifePreviousValuesPromise
+  extends Promise<LifePreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  title: () => Promise<String>;
+  content: () => Promise<String>;
+  file: () => Promise<Json>;
+  createAt: () => Promise<String>;
+}
+
+export interface LifePreviousValuesSubscription
+  extends Promise<AsyncIterator<LifePreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  title: () => Promise<AsyncIterator<String>>;
+  content: () => Promise<AsyncIterator<String>>;
+  file: () => Promise<AsyncIterator<Json>>;
+  createAt: () => Promise<AsyncIterator<String>>;
+}
+
+export interface StorySubscriptionPayload {
+  mutation: MutationType;
+  node: Story;
+  updatedFields: String[];
+  previousValues: StoryPreviousValues;
+}
+
+export interface StorySubscriptionPayloadPromise
+  extends Promise<StorySubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = StoryPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = StoryPreviousValuesPromise>() => T;
+}
+
+export interface StorySubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<StorySubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = StorySubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = StoryPreviousValuesSubscription>() => T;
+}
+
+export interface StoryPreviousValues {
+  id: ID_Output;
+  title: String;
+  content: String;
+  file: Json;
+  createAt: String;
+}
+
+export interface StoryPreviousValuesPromise
+  extends Promise<StoryPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  title: () => Promise<String>;
+  content: () => Promise<String>;
+  file: () => Promise<Json>;
+  createAt: () => Promise<String>;
+}
+
+export interface StoryPreviousValuesSubscription
+  extends Promise<AsyncIterator<StoryPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  title: () => Promise<AsyncIterator<String>>;
+  content: () => Promise<AsyncIterator<String>>;
+  file: () => Promise<AsyncIterator<Json>>;
+  createAt: () => Promise<AsyncIterator<String>>;
 }
 
 export interface UserSubscriptionPayload {
@@ -1083,54 +1692,57 @@ export interface VideoPreviousValuesSubscription
   file: () => Promise<AsyncIterator<Json>>;
 }
 
-export interface articleSubscriptionPayload {
+export interface WorshipSubscriptionPayload {
   mutation: MutationType;
-  node: article;
+  node: Worship;
   updatedFields: String[];
-  previousValues: articlePreviousValues;
+  previousValues: WorshipPreviousValues;
 }
 
-export interface articleSubscriptionPayloadPromise
-  extends Promise<articleSubscriptionPayload>,
+export interface WorshipSubscriptionPayloadPromise
+  extends Promise<WorshipSubscriptionPayload>,
     Fragmentable {
   mutation: () => Promise<MutationType>;
-  node: <T = articlePromise>() => T;
+  node: <T = WorshipPromise>() => T;
   updatedFields: () => Promise<String[]>;
-  previousValues: <T = articlePreviousValuesPromise>() => T;
+  previousValues: <T = WorshipPreviousValuesPromise>() => T;
 }
 
-export interface articleSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<articleSubscriptionPayload>>,
+export interface WorshipSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<WorshipSubscriptionPayload>>,
     Fragmentable {
   mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = articleSubscription>() => T;
+  node: <T = WorshipSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = articlePreviousValuesSubscription>() => T;
+  previousValues: <T = WorshipPreviousValuesSubscription>() => T;
 }
 
-export interface articlePreviousValues {
+export interface WorshipPreviousValues {
   id: ID_Output;
   title: String;
   content: String;
   file: Json;
+  createAt: String;
 }
 
-export interface articlePreviousValuesPromise
-  extends Promise<articlePreviousValues>,
+export interface WorshipPreviousValuesPromise
+  extends Promise<WorshipPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
   title: () => Promise<String>;
   content: () => Promise<String>;
   file: () => Promise<Json>;
+  createAt: () => Promise<String>;
 }
 
-export interface articlePreviousValuesSubscription
-  extends Promise<AsyncIterator<articlePreviousValues>>,
+export interface WorshipPreviousValuesSubscription
+  extends Promise<AsyncIterator<WorshipPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   title: () => Promise<AsyncIterator<String>>;
   content: () => Promise<AsyncIterator<String>>;
   file: () => Promise<AsyncIterator<Json>>;
+  createAt: () => Promise<AsyncIterator<String>>;
 }
 
 /*
@@ -1176,7 +1788,15 @@ export const models: Model[] = [
     embedded: false
   },
   {
-    name: "article",
+    name: "Worship",
+    embedded: false
+  },
+  {
+    name: "Life",
+    embedded: false
+  },
+  {
+    name: "Story",
     embedded: false
   }
 ];

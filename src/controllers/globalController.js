@@ -27,17 +27,38 @@ export const search = async (req, res) => {
   const {
     query: { term }
   } = req;
-  let contents = [];
+  let worships = [],
+    lives = [],
+    stories = [];
   try {
-    contents = await prisma.articles({ where: { content_contains: term } });
+    worships = await prisma.worships({ where: { content_contains: term } });
+    lives = await prisma.lives({ where: { content_contains: term } });
+    stories = await prisma.stories({ where: { content_contains: term } });
     res.status(200);
-    res.render("search", { pageTitle: "Search", contents });
+    res.render("search", {
+      pageTitle: "Search",
+      worships,
+      lives,
+      stories,
+      term
+    });
   } catch (error) {
     res.status(400);
     res.redirect(routes.home);
   }
 };
 
+export const searchWorship = (req, res) => {
+  res.render("searchWorship", { pageTitle: "search-worship" });
+};
+
+export const searchLife = (req, res) => {
+  res.render("searchLife", { pageTitle: "search-life" });
+};
+
+export const searchStory = (req, res) => {
+  res.render("searchStory", { pageTitle: "search-story" });
+};
 // Navigation
 
 export const about = (req, res) => {
