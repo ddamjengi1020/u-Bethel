@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.story = exports.community = exports.school = exports.life = exports.worship = exports.about = exports.search = exports.logout = exports.getLogin = exports.getJoin = exports.home = void 0;
+exports.story = exports.community = exports.school = exports.life = exports.worship = exports.about = exports.searchStory = exports.searchLife = exports.searchWorship = exports.search = exports.logout = exports.getLogin = exports.getJoin = exports.home = void 0;
 
 var _routes = _interopRequireDefault(require("../routes"));
 
@@ -54,52 +54,97 @@ function () {
   var _ref = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee(req, res) {
-    var term, contents;
+    var term, worships, lives, stories;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             term = req.query.term;
-            contents = [];
+            worships = [], lives = [], stories = [];
             _context.prev = 2;
             _context.next = 5;
-            return _prismaClient.prisma.articles({
+            return _prismaClient.prisma.worships({
               where: {
                 content_contains: term
               }
             });
 
           case 5:
-            contents = _context.sent;
+            worships = _context.sent;
+            _context.next = 8;
+            return _prismaClient.prisma.lives({
+              where: {
+                content_contains: term
+              }
+            });
+
+          case 8:
+            lives = _context.sent;
+            _context.next = 11;
+            return _prismaClient.prisma.stories({
+              where: {
+                content_contains: term
+              }
+            });
+
+          case 11:
+            stories = _context.sent;
             res.status(200);
             res.render("search", {
               pageTitle: "Search",
-              contents: contents
+              worships: worships,
+              lives: lives,
+              stories: stories,
+              term: term
             });
-            _context.next = 14;
+            _context.next = 20;
             break;
 
-          case 10:
-            _context.prev = 10;
+          case 16:
+            _context.prev = 16;
             _context.t0 = _context["catch"](2);
             res.status(400);
             res.redirect(_routes["default"].home);
 
-          case 14:
+          case 20:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[2, 10]]);
+    }, _callee, null, [[2, 16]]);
   }));
 
   return function search(_x, _x2) {
     return _ref.apply(this, arguments);
   };
-}(); // Navigation
-
+}();
 
 exports.search = search;
+
+var searchWorship = function searchWorship(req, res) {
+  res.render("searchWorship", {
+    pageTitle: "search-worship"
+  });
+};
+
+exports.searchWorship = searchWorship;
+
+var searchLife = function searchLife(req, res) {
+  res.render("searchLife", {
+    pageTitle: "search-life"
+  });
+};
+
+exports.searchLife = searchLife;
+
+var searchStory = function searchStory(req, res) {
+  res.render("searchStory", {
+    pageTitle: "search-story"
+  });
+}; // Navigation
+
+
+exports.searchStory = searchStory;
 
 var about = function about(req, res) {
   res.render("about", {

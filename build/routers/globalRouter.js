@@ -19,8 +19,7 @@ globalRouter.get(_routes["default"].home, _globalController.home); //  Logged
 
 globalRouter.get(_routes["default"].join, _globalController.getJoin);
 globalRouter.get(_routes["default"].login, _globalController.getLogin);
-globalRouter.get(_routes["default"].logout, _globalController.logout);
-globalRouter.get(_routes["default"].search, _globalController.search); //  Nav
+globalRouter.get(_routes["default"].logout, _globalController.logout); //  Nav
 
 globalRouter.get(_routes["default"].about, _globalController.about);
 globalRouter.get(_routes["default"].worship, _globalController.worship);

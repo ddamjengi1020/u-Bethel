@@ -10,9 +10,10 @@ const SCHOOL = "/school";
 const COMMUNITY = "/community";
 const STORY = "/story";
 const SEARCH = "/search";
-const SEARCHWORSHIP = "/worship";
-const SEARCHLIFE = "/life";
-const SEARCHSTORY = "/story";
+const SEARCHDATA = "/search-data";
+const SEARCHWORSHIP = "/search-worship";
+const SEARCHLIFE = "/search-life";
+const SEARCHSTORY = "/search-story";
 
 //  User
 const USER = "/users";
@@ -35,6 +36,7 @@ const routes = {
   searchWorship: SEARCHWORSHIP,
   searchLife: SEARCHLIFE,
   searchStory: SEARCHSTORY,
+  searchData: SEARCHDATA,
   about: ABOUT,
   worship: WORSHIP,
   life: LIFE,

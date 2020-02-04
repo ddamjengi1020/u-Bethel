@@ -20,7 +20,6 @@ exports.uploadFile = uploadFile;
 var localsMiddleware = function localsMiddleware(req, res, next) {
   res.locals.siteName = "u-Bethel";
   res.locals.routes = _routes["default"];
-  res.locals.adminIP = process.env.ADMINIP;
   next();
 };
 

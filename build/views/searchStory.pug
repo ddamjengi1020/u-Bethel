@@ -1,0 +1,12 @@
+extends partials/searchNav
+include mixins/search_story
+
+block search
+
+    h2 story
+
+    each item in stories
+        +search_story({
+            title: item.title,
+            content: item.content
+        })

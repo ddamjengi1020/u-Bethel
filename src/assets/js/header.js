@@ -72,4 +72,6 @@ function init() {
   window.addEventListener("wheel", handleScroll);
 }
 
-init();
+if (header) {
+  init();
+}

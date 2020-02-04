@@ -1,13 +1,20 @@
 extends layouts/main
-include mixins/test
 
 block content
-    div search
-    if contents.length === 0
-        div.searching-message NOT FOUND!
-    else
-        each item in contents
-            +test({
-                title: item.title,
-                content: item.content
-            })
+    .search
+        .search__bar
+            form(action=routes.search, method="get")
+                input(type="text",name="term", value=term)
+                img.btn-submit(src="icon-img/search_copy.png")
+        .search__message
+            span "#{term}" 검색 결과가 총 #[strong #{ worships.length+lives.length+stories.length }건] 있습니다.
+        .search__nav#jsSearchNav
+            ul
+                a(href=`${routes.search}?term=${term}`)
+                    li 전체 (#{ worships.length+lives.length+stories.length })
+                a(href=`/search${routes.searchWorship}?term=${term}`)
+                    li 예배 (#{ worships.length })
+                a(href=`/search${routes.searchLife}?term=${term}`)
+                    li 교회생활 (#{ lives.length })
+                a(href=`/search${routes.searchStory}?term=${term}`)
+                    li 벧엘스토리 (#{ stories.length })

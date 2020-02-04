@@ -27,25 +27,14 @@ export const search = async (req, res) => {
   const {
     query: { term }
   } = req;
-  let worships = [],
-    lives = [],
-    stories = [];
-  try {
-    worships = await prisma.worships({ where: { content_contains: term } });
-    lives = await prisma.lives({ where: { content_contains: term } });
-    stories = await prisma.stories({ where: { content_contains: term } });
-    res.status(200);
-    res.render("search", {
-      pageTitle: "Search",
-      worships,
-      lives,
-      stories,
-      term
-    });
-  } catch (error) {
-    res.status(400);
-    res.redirect(routes.home);
-  }
+  let worships = await prisma.worships({
+    where: { content_contains: term }
+  });
+  let lives = await prisma.lives({ where: { content_contains: term } });
+  let stories = await prisma.stories({
+    where: { content_contains: term }
+  });
+  res.render("search", { pageTitle: "Search", term, worships, lives, stories });
 };
 
 export const searchWorship = (req, res) => {

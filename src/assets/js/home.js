@@ -1,10 +1,9 @@
+const home = document.getElementById("jsHome");
 const mainImg = document.getElementById("jsMainImg");
 const arrowLeft = document.getElementById("jsArrowLeft");
 const arrowRight = document.getElementById("jsArrowRight");
 const redLeft = document.getElementById("jsRedLeft");
-const redLeftArrow = redLeft.querySelector("img");
 const redRight = document.getElementById("jsRedRight");
-const redRightArrow = redRight.querySelector("img");
 const sliderMaskBox = document.getElementById("jsSliderMaskBox");
 
 const imageList = [
@@ -14,14 +13,17 @@ const imageList = [
 ];
 
 let num = 0;
-mainImg.src = imageList[0];
+
+const img = async num => {
+  mainImg.src = await imageList[num];
+};
 
 function handleNextImg() {
   num++;
   if (num >= imageList.length) {
     num = 0;
   }
-  mainImg.src = imageList[num];
+  img(num);
   mainImg.className = `main-img slider${num}`;
 }
 
@@ -30,7 +32,7 @@ function handlePreImg() {
   if (num < 0) {
     num = imageList.length - 1;
   }
-  mainImg.src = imageList[num];
+  img(num);
   mainImg.className = `main-img slider${num}`;
 }
 
@@ -45,20 +47,21 @@ function handleRightSlider() {
 }
 
 function handleRedLeftArrow() {
-  redLeftArrow.src = "icon-img/arrow_red_left.png";
+  redLeft.src = "icon-img/arrow_red_left.png";
   redLeft.addEventListener("mouseleave", () => {
-    redLeftArrow.src = "icon-img/arrow_normal_left.png";
+    redLeft.src = "icon-img/arrow_normal_left.png";
   });
 }
 
 function handleRedRightArrow() {
-  redRightArrow.src = "icon-img/arrow_red_right.png";
+  redRight.src = "icon-img/arrow_red_right.png";
   redRight.addEventListener("mouseleave", () => {
-    redRightArrow.src = "icon-img/arrow_normal_right.png";
+    redRight.src = "icon-img/arrow_normal_right.png";
   });
 }
 
 function init() {
+  img(num);
   arrowRight.addEventListener("click", handleNextImg);
   arrowLeft.addEventListener("click", handlePreImg);
   redLeft.addEventListener("click", handleLeftSlider);
@@ -67,4 +70,6 @@ function init() {
   redRight.addEventListener("mouseover", handleRedRightArrow);
 }
 
-init();
+if (home) {
+  init();
+}

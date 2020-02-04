@@ -1,0 +1,12 @@
+extends partials/searchNav
+include mixins/search_life
+
+block search
+
+    h2 life
+
+    each item in lives
+        +search_life({
+            title: item.title,
+            content: item.content
+        })

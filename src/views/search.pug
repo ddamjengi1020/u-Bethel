@@ -1,20 +1,57 @@
 extends layouts/main
+include mixins/search_worship
+include mixins/search_life
+include mixins/search_story
 
 block content
-    .search
+    .search#jsSearch
         .search__bar
             form(action=routes.search, method="get")
                 input(type="text",name="term", value=term)
-                img.btn-submit(src="icon-img/search_copy.png")
+                button.btn-submit(type="submit")
+                    img(src="icon-img/search_copy.png")
         .search__message
             span "#{term}" 검색 결과가 총 #[strong #{ worships.length+lives.length+stories.length }건] 있습니다.
         .search__nav#jsSearchNav
             ul
-                a(href=`${routes.search}?term=${term}`)
-                    li 전체 (#{ worships.length+lives.length+stories.length })
-                a(href=`/search${routes.searchWorship}?term=${term}`)
-                    li 예배 (#{ worships.length })
-                a(href=`/search${routes.searchLife}?term=${term}`)
-                    li 교회생활 (#{ lives.length })
-                a(href=`/search${routes.searchStory}?term=${term}`)
-                    li 벧엘스토리 (#{ stories.length })
+                li.searchAll.jsSearchLI 전체 (#{ worships.length+lives.length+stories.length })
+                li.searchWorship.jsSearchLI 예배 (#{ worships.length })
+                li.searchLife.jsSearchLI 교회생활 (#{ lives.length })
+                li.searchStory.jsSearchLI 벧엘스토리 (#{ stories.length })
+        .search__all#jsSearchAll
+            each item in worships
+                +search_worship({
+                    title: item.title,
+                    content: item.content
+                })
+            each item in lives
+                +search_life({
+                    title: item.title,
+                    content: item.content
+                })
+            each item in stories
+                +search_story({
+                    title: item.title,
+                    content: item.content
+                })
+        .search__worship#jsSearchWorship
+            h2 worship search
+            each item in worships
+                +search_worship({
+                    title: item.title,
+                    content: item.content
+                })
+        .search__life#jsSearchLife
+            h2 life search
+            each item in lives
+                +search_life({
+                    title: item.title,
+                    content: item.content
+                })
+        .search__story#jsSearchStory
+            h2 story search
+            each item in stories
+                +search_story({
+                    title: item.title,
+                    content: item.content
+                })

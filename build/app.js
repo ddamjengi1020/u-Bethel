@@ -27,16 +27,18 @@ var _userRouter = _interopRequireDefault(require("./routers/userRouter"));
 
 var _pastorRouter = _interopRequireDefault(require("./routers/pastorRouter"));
 
+var _searchRouter = _interopRequireDefault(require("./routers/searchRouter"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var app = (0, _express["default"])();
 app.use((0, _helmet["default"])());
 app.set("view engine", "pug");
 app.set("views", _path["default"].join(__dirname, "views"));
-app.use("/upload", _express["default"]["static"](_path["default"].join(__dirname, "upload")));
-app.use("/icon-img", _express["default"]["static"](_path["default"].join(__dirname, "icon_img")));
-app.use("/font", _express["default"]["static"](_path["default"].join(__dirname, "font")));
-app.use("/static", _express["default"]["static"](_path["default"].join(__dirname, "static")));
+app.use("*/upload", _express["default"]["static"](_path["default"].join(__dirname, "upload")));
+app.use("*/icon-img", _express["default"]["static"](_path["default"].join(__dirname, "icon_img")));
+app.use("*/font", _express["default"]["static"](_path["default"].join(__dirname, "font")));
+app.use("*/static", _express["default"]["static"](_path["default"].join(__dirname, "static")));
 app.use((0, _morgan["default"])("dev"));
 app.use(_bodyParser["default"].json());
 app.use(_bodyParser["default"].urlencoded({
@@ -45,6 +47,7 @@ app.use(_bodyParser["default"].urlencoded({
 app.use((0, _cookieParser["default"])());
 app.use(_middlewares.localsMiddleware);
 app.use(_routes["default"].home, _globalRouter["default"]);
+app.use(_routes["default"].search, _searchRouter["default"]);
 app.use(_routes["default"].user, _userRouter["default"]);
 app.use(_routes["default"].seniorPastor, _pastorRouter["default"]);
 var _default = app;

@@ -9,26 +9,34 @@ var HOME = "/";
 var JOIN = "/join";
 var LOGIN = "/login";
 var LOGOUT = "/logout";
-var SEARCH = "/search";
 var ABOUT = "/about";
 var WORSHIP = "/worship";
 var LIFE = "/life";
 var SCHOOL = "/school";
 var COMMUNITY = "/community";
-var STORY = "/story"; //  User
+var STORY = "/story";
+var SEARCH = "/search";
+var SEARCHWORSHIP = "/worship";
+var SEARCHLIFE = "/life";
+var SEARCHSTORY = "/story"; //  User
 
 var USER = "/users";
 var USER_DETAIL = "/:id";
 var EDIT_PROFILE = "/edit-profile";
 var CHANGE_PASSWORD = "/change-password"; // Park Pastor
 
-var SENIOR_PASTOR = "/park-pastor";
+var SENIOR_PASTOR = "/park-pastor"; // authentication
+
+var AUTH = "/auth";
 var routes = {
   home: HOME,
   join: JOIN,
   login: LOGIN,
   logout: LOGOUT,
   search: SEARCH,
+  searchWorship: SEARCHWORSHIP,
+  searchLife: SEARCHLIFE,
+  searchStory: SEARCHSTORY,
   about: ABOUT,
   worship: WORSHIP,
   life: LIFE,
@@ -39,7 +47,8 @@ var routes = {
   userDetail: USER_DETAIL,
   editProfile: EDIT_PROFILE,
   changePassword: CHANGE_PASSWORD,
-  seniorPastor: SENIOR_PASTOR
+  seniorPastor: SENIOR_PASTOR,
+  auth: AUTH
 };
 var _default = routes;
 exports["default"] = _default;
