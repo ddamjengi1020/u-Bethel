@@ -19,39 +19,72 @@ block content
                 li.searchLife.jsSearchLI 교회생활 (#{ lives.length })
                 li.searchStory.jsSearchLI 벧엘스토리 (#{ stories.length })
         .search__all#jsSearchAll
-            each item in worships
-                +search_worship({
-                    title: item.title,
-                    content: item.content
-                })
-            each item in lives
-                +search_life({
-                    title: item.title,
-                    content: item.content
-                })
-            each item in stories
-                +search_story({
-                    title: item.title,
-                    content: item.content
-                })
+            .search__all-listForm.listForm
+                .listForm__attribute
+                    span 번호
+                    span 제목
+                    span 등록일
+                ul
+                    each item in worships
+                        +search_worship({
+                            title: item.title,
+                            content: item.content
+                        })
+            .search__all-listForm.listForm
+                .listForm__attribute
+                    span 번호
+                    span 제목
+                    span 등록일
+                ul
+                    each item in lives
+                        +search_life({
+                            title: item.title,
+                            content: item.content
+                        })
+            .search__all-listForm.listForm
+                .listForm__attribute
+                    span 번호
+                    span 제목
+                    span 등록일
+                ul
+                    each item in stories
+                        +search_story({
+                            title: item.title,
+                            content: item.content
+                        })
         .search__worship#jsSearchWorship
-            h2 worship search
-            each item in worships
-                +search_worship({
-                    title: item.title,
-                    content: item.content
-                })
+            .search__all-listForm.listForm
+                .listForm__attribute
+                    span 번호
+                    span 제목
+                    span 등록일
+                ul
+                    each item in worships
+                        +search_worship({
+                            title: item.title,
+                            content: item.content
+                        })
         .search__life#jsSearchLife
-            h2 life search
-            each item in lives
-                +search_life({
-                    title: item.title,
-                    content: item.content
-                })
+            .search__all-listForm.listForm
+                .listForm__attribute
+                    span 번호
+                    span 제목
+                    span 등록일
+                ul
+                    each item in lives
+                        +search_life({
+                            title: item.title,
+                            content: item.content
+                        })
         .search__story#jsSearchStory
-            h2 story search
-            each item in stories
-                +search_story({
-                    title: item.title,
-                    content: item.content
-                })
+            .search__all-listForm.listForm
+                .listForm__attribute
+                    span 번호
+                    span 제목
+                    span 등록일
+                ul
+                    each item in stories
+                        +search_story({
+                            title: item.title,
+                            content: item.content
+                        })
