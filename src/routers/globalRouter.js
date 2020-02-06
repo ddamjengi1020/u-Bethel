@@ -10,7 +10,8 @@ import {
   school,
   community,
   story,
-  getLogin
+  getLogin,
+  search
 } from "../controllers/globalController";
 
 const globalRouter = express.Router();
@@ -21,6 +22,9 @@ globalRouter.get(routes.home, home);
 globalRouter.get(routes.join, getJoin);
 globalRouter.get(routes.login, getLogin);
 globalRouter.get(routes.logout, logout);
+
+// Search
+globalRouter.get(routes.search, search);
 
 //  Nav
 globalRouter.get(routes.about, about);

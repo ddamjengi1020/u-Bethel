@@ -1,0 +1,7 @@
+include mixins/search_story
+
+each item in stories
+    +search_story({
+        title: item.title,
+        content: item.content
+    })

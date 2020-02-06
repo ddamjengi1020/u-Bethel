@@ -27,27 +27,63 @@ export const search = async (req, res) => {
   const {
     query: { term }
   } = req;
-  let worships = await prisma.worships({
-    where: { content_contains: term }
-  });
+  let worships = await prisma.worships({ where: { content_contains: term } });
   let lives = await prisma.lives({ where: { content_contains: term } });
-  let stories = await prisma.stories({
-    where: { content_contains: term }
+  let stories = await prisma.stories({ where: { content_contains: term } });
+  res.render("search", {
+    pageTitle: "Search",
+    term,
+    worships,
+    lives,
+    stories
   });
-  res.render("search", { pageTitle: "Search", term, worships, lives, stories });
 };
 
-export const searchWorship = (req, res) => {
-  res.render("searchWorship", { pageTitle: "search-worship" });
+export const test2 = async (req, res) => {
+  console.log(req.body);
+  const url = req.headers.referer;
+  const term = url.split("=")[1];
+  try {
+    let worships = await prisma.worships({
+      where: { content_contains: term },
+      skip: 10 * (req.body.data - 1),
+      first: 1
+    });
+    res.render("test2", { worships });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-export const searchLife = (req, res) => {
-  res.render("searchLife", { pageTitle: "search-life" });
+export const test3 = async (req, res) => {
+  const url = req.headers.referer;
+  const term = url.split("=")[1];
+  try {
+    let lives = await prisma.lives({
+      where: { content_contains: term },
+      skip: 10 * (req.body.data - 1),
+      first: 1
+    });
+    res.render("test3", { lives });
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const test4 = async (req, res) => {
+  const url = req.headers.referer;
+  const term = url.split("=")[1];
+  try {
+    let stories = await prisma.stories({
+      where: { content_contains: term },
+      skip: 10 * (req.body.data - 1),
+      first: 1
+    });
+    res.render("test4", { stories });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-export const searchStory = (req, res) => {
-  res.render("searchStory", { pageTitle: "search-story" });
-};
 // Navigation
 
 export const about = (req, res) => {

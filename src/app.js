@@ -10,7 +10,7 @@ import { localsMiddleware } from "./middlewares";
 import globalRouter from "./routers/globalRouter";
 import userRouter from "./routers/userRouter";
 import pastorRouter from "./routers/pastorRouter";
-import searchRouter from "./routers/searchRouter";
+import apiRouter from "./routers/apiRouter";
 
 const app = express();
 
@@ -29,8 +29,8 @@ app.use(cookieParser());
 app.use(localsMiddleware);
 
 app.use(routes.home, globalRouter);
-app.use(routes.search, searchRouter);
 app.use(routes.user, userRouter);
+app.use("/api", apiRouter);
 app.use(routes.seniorPastor, pastorRouter);
 
 export default app;

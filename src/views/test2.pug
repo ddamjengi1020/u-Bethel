@@ -1,0 +1,7 @@
+include mixins/search_worship
+
+each item in worships
+    +search_worship({
+        title: item.title,
+        content: item.content
+    })

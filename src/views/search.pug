@@ -58,33 +58,21 @@ block content
                     span 번호
                     span 제목
                     span 등록일
-                ul
-                    each item in worships
-                        +search_worship({
-                            title: item.title,
-                            content: item.content
-                        })
+                ul#jsApiTest
+            ul(data-totalnum=worships.length)#jsWorshipDb
         .search__life#jsSearchLife
             .search__all-listForm.listForm
                 .listForm__attribute
                     span 번호
                     span 제목
                     span 등록일
-                ul
-                    each item in lives
-                        +search_life({
-                            title: item.title,
-                            content: item.content
-                        })
+                ul#jsApiTest
+            ul(data-totalnum=lives.length)#jsLivesDb
         .search__story#jsSearchStory
             .search__all-listForm.listForm
                 .listForm__attribute
                     span 번호
                     span 제목
                     span 등록일
-                ul
-                    each item in stories
-                        +search_story({
-                            title: item.title,
-                            content: item.content
-                        })
+                ul#jsApiTest
+            ul(data-totalnum=stories.length)#jsStoriesDb

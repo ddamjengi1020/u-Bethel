@@ -1,0 +1,7 @@
+include mixins/search_life
+
+each item in lives
+    +search_life({
+        title: item.title,
+        content: item.content
+    })
