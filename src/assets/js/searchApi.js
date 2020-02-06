@@ -1,80 +1,97 @@
 import axios from "axios";
 
-const testApi = document.getElementById("jsApiTest");
-const testWorshipsUl = document.getElementById("jsWorshipDb");
-const testLivesUl = document.getElementById("jsLivesDb");
-const testStoriesUl = document.getElementById("jsStoriesDb");
-const preBtn = document.getElementById("jsPre");
-const nextBtn = document.getElementById("jsNext");
+const search = document.getElementById("jsSearch");
+const worshipList = document.getElementById("jsWorshipList");
+const lifeList = document.getElementById("jsLifeList");
+const storyList = document.getElementById("jsStoryList");
+const worshipsBtn = document.getElementById("jsWorshipPageBtn");
+const lifeBtn = document.getElementById("jsLifePageBtn");
+const storyBtn = document.getElementById("jsStoryPageBtn");
+const preBtn = Array.from(document.querySelectorAll(".jsPre"));
+const nextBtn = Array.from(document.querySelectorAll(".jsNext"));
 
-async function handleTest(e) {
+const FIRSTBTN = "<button>1</button>";
+
+async function handleListApi(e, url, list) {
   await axios
-    .post(`/api/test2`, {
+    .post(`/api/${url}`, {
       data: parseInt(e.target.innerText)
     })
-    .then(response => (testApi.innerHTML = response.data));
+    .then(response => (list.innerHTML = response.data));
 }
-// ul.dataset.totalnum
-function searchDataApi(ul) {
-  let totalData = 1000; //총 데이터 수
+
+function searchDataApi(pageBtn, url, list, btnNum) {
+  let totalData = pageBtn.dataset.totalnum; //총 데이터 수
   let dataPage = 10; // 한 페이지에 나타낼 데이터 수
-  // let pageCount = 10; //한 화면에 나타낼 페이지 수
+  let pageCount = 10; //한 화면에 나타낼 페이지 수
   let totalPage = Math.ceil(totalData / dataPage); //총 페이지 수
-  // let pageGroup = Math.ceil(currentPage / pageCount);
   let num = 1;
   for (let i = 0; i < totalPage; i++) {
     const button = document.createElement("button");
     button.innerText = i + 1;
-    if (button.innerText <= dataPage) {
-      ul.appendChild(button);
+    if (button.innerText <= pageCount) {
+      pageBtn.appendChild(button);
     }
   }
 
   function handleNext() {
-    ++num;
-    ul.innerHTML = "";
-    for (let i = 0; i < totalPage; i++) {
-      const button = document.createElement("button");
-      button.innerText = i + 1;
-      if (
-        button.innerText > dataPage * (num - 1) &&
-        button.innerText <= dataPage * num
-      ) {
-        ul.appendChild(button);
+    if (!pageBtn.innerHTML.match(`<button>${totalPage}</button>`)) {
+      ++num;
+      pageBtn.innerHTML = "";
+      for (let i = 0; i < totalPage; i++) {
+        const button = document.createElement("button");
+        button.innerText = i + 1;
+        if (
+          button.innerText > pageCount * (num - 1) &&
+          button.innerText <= pageCount * num
+        ) {
+          pageBtn.appendChild(button);
+        }
       }
     }
   }
 
   function handlePre() {
-    --num;
-    ul.innerHTML = "";
-    for (let i = 0; i < totalPage; i++) {
-      const button = document.createElement("button");
-      button.innerText = i + 1;
-      if (
-        button.innerText > dataPage * (num - 1) &&
-        button.innerText <= dataPage * num
-      ) {
-        ul.appendChild(button);
+    if (!pageBtn.innerHTML.match(FIRSTBTN)) {
+      --num;
+      pageBtn.innerHTML = "";
+      for (let i = 0; i < totalPage; i++) {
+        const button = document.createElement("button");
+        button.innerText = i + 1;
+        if (
+          button.innerText > pageCount * (num - 1) &&
+          button.innerText <= pageCount * num
+        ) {
+          pageBtn.appendChild(button);
+        }
       }
     }
   }
 
-  nextBtn.addEventListener("click", handleNext);
-  preBtn.addEventListener("click", handlePre);
+  nextBtn[btnNum].addEventListener("click", handleNext);
+  preBtn[btnNum].addEventListener("click", handlePre);
 
-  const btnArr = Array.from(ul.querySelectorAll("button"));
+  const btnArr = Array.from(pageBtn.querySelectorAll("button"));
 
   btnArr.forEach(el => {
-    console.log(btnArr);
-    el.addEventListener("click", handleTest);
+    el.addEventListener("click", () => handleListApi(event, url, list));
   });
+
+  pageBtn.children[0].click();
 }
 
-function init() {
-  searchDataApi(testWorshipsUl);
-  // searchDataApi(testLivesUl);
-  // searchDataApi(testStoriesUl);
+async function init() {
+  worshipsBtn.dataset.totalnum > 0
+    ? searchDataApi(worshipsBtn, "test2", worshipList, 0)
+    : (worshipsBtn.innerHTML = FIRSTBTN);
+  lifeBtn.dataset.totalnum > 0
+    ? searchDataApi(lifeBtn, "test3", lifeList, 1)
+    : (lifeBtn.innerHTML = FIRSTBTN);
+  storyBtn.dataset.totalnum > 0
+    ? searchDataApi(storyBtn, "test4", storyList, 2)
+    : (storyBtn.innerHTML = FIRSTBTN);
 }
 
-init();
+if (search) {
+  init();
+}

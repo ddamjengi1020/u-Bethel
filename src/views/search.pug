@@ -25,6 +25,8 @@ block content
                     span 제목
                     span 등록일
                 ul
+                    if worships.length ===0
+                        span 없음둥
                     each item in worships
                         +search_worship({
                             title: item.title,
@@ -36,6 +38,8 @@ block content
                     span 제목
                     span 등록일
                 ul
+                    if lives.length ===0
+                        span 없음둥
                     each item in lives
                         +search_life({
                             title: item.title,
@@ -47,6 +51,8 @@ block content
                     span 제목
                     span 등록일
                 ul
+                    if stories.length ===0
+                        span 없음둥
                     each item in stories
                         +search_story({
                             title: item.title,
@@ -58,23 +64,33 @@ block content
                     span 번호
                     span 제목
                     span 등록일
-                ul#jsApiTest
-            input(type="button" value="pre")#jsPre
-            ul(data-totalnum=worships.length)#jsWorshipDb
-            input(type="button" value="next")#jsNext
+                ul#jsWorshipList
+                    if worships.length ===0
+                        span 없음둥
+            input(type="button" value="pre").jsPre.preBtn
+            ul(data-totalnum=worships.length)#jsWorshipPageBtn
+            input(type="button" value="next").jsNext.nextBtn
         .search__life#jsSearchLife
             .search__all-listForm.listForm
                 .listForm__attribute
                     span 번호
                     span 제목
                     span 등록일
-                ul#jsApiTest
-            ul(data-totalnum=lives.length)#jsLivesDb
+                ul#jsLifeList
+                    if lives.length ===0
+                        span 없음둥
+            input(type="button" value="pre").jsPre.preBtn
+            ul(data-totalnum=lives.length)#jsLifePageBtn
+            input(type="button" value="next").jsNext.nextBtn
         .search__story#jsSearchStory
             .search__all-listForm.listForm
                 .listForm__attribute
                     span 번호
                     span 제목
                     span 등록일
-                ul#jsApiTest
-            ul(data-totalnum=stories.length)#jsStoriesDb
+                ul#jsStoryList
+                    if stories.length ===0
+                        span 없음둥
+            input(type="button" value="pre").jsPre.preBtn
+            ul(data-totalnum=stories.length)#jsStoryPageBtn
+            input(type="button" value="next").jsNext.nextBtn
