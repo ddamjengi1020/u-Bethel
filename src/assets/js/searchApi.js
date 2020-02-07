@@ -12,15 +12,15 @@ const nextBtn = Array.from(document.querySelectorAll(".jsNext"));
 
 const FIRSTBTN = "<button>1</button>";
 
-async function handleListApi(e, url, list) {
+const handleListApi = async (e, url, list) => {
   await axios
     .post(`/api/${url}`, {
       data: parseInt(e.target.innerText)
     })
     .then(response => (list.innerHTML = response.data));
-}
+};
 
-function searchDataApi(pageBtn, url, list, btnNum) {
+const searchDataApi = (pageBtn, url, list, btnNum) => {
   let totalData = pageBtn.dataset.totalnum; //총 데이터 수
   let dataPage = 10; // 한 페이지에 나타낼 데이터 수
   let pageCount = 10; //한 화면에 나타낼 페이지 수
@@ -34,39 +34,33 @@ function searchDataApi(pageBtn, url, list, btnNum) {
     }
   }
 
-  function handleNext() {
+  const pageNumTest = () => {
+    pageBtn.innerHTML = "";
+    for (let i = 0; i < totalPage; i++) {
+      const button = document.createElement("button");
+      button.innerText = i + 1;
+      if (
+        button.innerText > pageCount * (num - 1) &&
+        button.innerText <= pageCount * num
+      ) {
+        pageBtn.appendChild(button);
+      }
+    }
+  };
+
+  const handleNext = () => {
     if (!pageBtn.innerHTML.match(`<button>${totalPage}</button>`)) {
       ++num;
-      pageBtn.innerHTML = "";
-      for (let i = 0; i < totalPage; i++) {
-        const button = document.createElement("button");
-        button.innerText = i + 1;
-        if (
-          button.innerText > pageCount * (num - 1) &&
-          button.innerText <= pageCount * num
-        ) {
-          pageBtn.appendChild(button);
-        }
-      }
+      pageNumTest();
     }
-  }
+  };
 
-  function handlePre() {
+  const handlePre = () => {
     if (!pageBtn.innerHTML.match(FIRSTBTN)) {
       --num;
-      pageBtn.innerHTML = "";
-      for (let i = 0; i < totalPage; i++) {
-        const button = document.createElement("button");
-        button.innerText = i + 1;
-        if (
-          button.innerText > pageCount * (num - 1) &&
-          button.innerText <= pageCount * num
-        ) {
-          pageBtn.appendChild(button);
-        }
-      }
+      pageNumTest();
     }
-  }
+  };
 
   nextBtn[btnNum].addEventListener("click", handleNext);
   preBtn[btnNum].addEventListener("click", handlePre);
@@ -78,9 +72,9 @@ function searchDataApi(pageBtn, url, list, btnNum) {
   });
 
   pageBtn.children[0].click();
-}
+};
 
-async function init() {
+const init = () => {
   worshipsBtn.dataset.totalnum > 0
     ? searchDataApi(worshipsBtn, "test2", worshipList, 0)
     : (worshipsBtn.innerHTML = FIRSTBTN);
@@ -90,7 +84,7 @@ async function init() {
   storyBtn.dataset.totalnum > 0
     ? searchDataApi(storyBtn, "test4", storyList, 2)
     : (storyBtn.innerHTML = FIRSTBTN);
-}
+};
 
 if (search) {
   init();
